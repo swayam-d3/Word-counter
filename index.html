@@ -3,172 +3,409 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Crazy Word Counter | Swayam Maheshwari</title>
+  <title>Swayam Maheshwari | Ultra Web Suite & Utilities</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      background: #080915;
+      color: #f1f5f9;
       min-height: 100vh;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-      background-size: 400% 400%;
-      animation: gradientBG 12s ease infinite;
-      color: #fff;
+      padding: 30px 15px;
+      overflow-x: hidden;
     }
 
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    /* Glow Ambient Background Elements */
+    .glow-bg {
+      position: fixed;
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(99,102,241,0.25) 0%, rgba(0,0,0,0) 70%);
+      top: -100px;
+      left: -100px;
+      z-index: -1;
+      border-radius: 50%;
     }
 
-    .card {
-      background: rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 20px;
+    .glow-bg-2 {
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(236,72,153,0.2) 0%, rgba(0,0,0,0) 70%);
+      bottom: -100px;
+      right: -100px;
+      z-index: -1;
+      border-radius: 50%;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 850px;
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+    }
+
+    /* GLASS CARD */
+    .glass-card {
+      background: rgba(18, 22, 41, 0.65);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
       padding: 30px;
-      width: 90%;
-      max-width: 650px;
-      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .glass-card:hover {
+      border-color: rgba(99, 102, 241, 0.3);
+    }
+
+    /* HEADER BANNER */
+    .header-banner {
       text-align: center;
+      padding: 20px 10px;
     }
 
-    h1 {
-      font-size: 2.2rem;
-      margin-bottom: 5px;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
-      letter-spacing: 1px;
+    .glowing-title {
+      font-size: 2.4rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #a855f7, #6366f1, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 30px rgba(168, 85, 247, 0.4);
+      letter-spacing: -0.5px;
     }
 
-    p.subtitle {
-      font-size: 0.9rem;
-      opacity: 0.85;
-      margin-bottom: 25px;
+    .sub-tagline {
+      color: #94a3b8;
+      font-size: 0.95rem;
+      margin-top: 8px;
+    }
+
+    /* TEXT TOOL */
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: #f8fafc;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
     textarea {
       width: 100%;
-      height: 160px;
-      background: rgba(0, 0, 0, 0.25);
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      border-radius: 12px;
-      padding: 15px;
-      font-size: 1.1rem;
-      color: #fff;
-      box-sizing: border-box;
+      height: 180px;
+      background: rgba(10, 14, 29, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 18px;
+      font-size: 1.05rem;
+      color: #f1f5f9;
       outline: none;
       resize: vertical;
       transition: all 0.3s ease;
     }
 
     textarea:focus {
-      border-color: #00f2fe;
-      box-shadow: 0 0 15px #00f2fe;
+      border-color: #6366f1;
+      box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+    }
+
+    .btn-toolbar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+
+    .action-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #e2e8f0;
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .action-btn:hover {
+      background: #6366f1;
+      border-color: #6366f1;
+      color: #fff;
+      box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
     }
 
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
       gap: 15px;
       margin-top: 25px;
     }
 
-    .stat-box {
-      background: rgba(255, 255, 255, 0.15);
-      padding: 15px;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    .stat-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 18px;
+      border-radius: 16px;
+      text-align: center;
     }
 
-    .stat-box:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    .stat-number {
+    .stat-val {
       font-size: 1.8rem;
-      font-weight: bold;
-      color: #00ffcc;
-      text-shadow: 0 0 8px #00ffcc;
+      font-weight: 800;
+      color: #38bdf8;
+      text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
     }
 
-    .stat-label {
-      font-size: 0.85rem;
-      opacity: 0.9;
+    .stat-lbl {
+      font-size: 0.8rem;
+      color: #94a3b8;
       margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
-    .btn-container {
-      margin-top: 20px;
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-    }
-
-    .btn {
-      background: linear-gradient(45deg, #ff007f, #7928ca);
-      border: none;
-      color: white;
-      padding: 12px 24px;
-      font-size: 0.95rem;
-      border-radius: 30px;
+    /* QUIZ SECTION */
+    .quiz-option {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 12px 18px;
+      border-radius: 12px;
+      margin-top: 10px;
       cursor: pointer;
-      font-weight: bold;
-      box-shadow: 0 0 12px rgba(255, 0, 127, 0.5);
-      transition: all 0.3s ease;
+      transition: all 0.2s ease;
     }
 
-    .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(255, 0, 127, 0.8);
+    .quiz-option:hover {
+      background: rgba(99, 102, 241, 0.2);
+      border-color: #6366f1;
+    }
+
+    /* 3D CREATOR PROFILE SECTION (BOTTOM) */
+    .creator-card {
+      background: linear-gradient(145deg, rgba(20, 24, 45, 0.9), rgba(10, 12, 25, 0.95));
+      border: 2px solid rgba(168, 85, 247, 0.3);
+      border-radius: 28px;
+      padding: 35px;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(168, 85, 247, 0.2);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .creator-badge {
+      display: inline-block;
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid #a855f7;
+      color: #c084fc;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 30px;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* 3D PHOTO FRAME (Full Natural View) */
+    .photo-frame-3d {
+      width: 220px;
+      max-width: 85%;
+      margin: 0 auto 20px;
+      border-radius: 20px;
+      padding: 8px;
+      background: linear-gradient(135deg, #a855f7, #6366f1, #38bdf8);
+      box-shadow: 0 15px 35px rgba(99, 102, 241, 0.5), 0 0 20px rgba(168, 85, 247, 0.4);
+      transform: perspective(1000px) rotateX(2deg) rotateY(-2deg);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .photo-frame-3d:hover {
+      transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1.03);
+      box-shadow: 0 20px 45px rgba(168, 85, 247, 0.7);
+    }
+
+    .creator-photo {
+      width: 100%;
+      height: auto;
+      border-radius: 14px;
+      display: block;
+      object-fit: cover;
+    }
+
+    .creator-name {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #ffffff;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+      margin-bottom: 5px;
+    }
+
+    .creator-title {
+      color: #38bdf8;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .whatsapp-btn-3d {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+      transition: all 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .whatsapp-btn-3d:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 15px 35px rgba(37, 211, 102, 0.7);
+    }
+
+    /* FAQ */
+    .faq-q {
+      font-weight: 600;
+      color: #a855f7;
+      margin-bottom: 4px;
+    }
+
+    .faq-a {
+      color: #94a3b8;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 15px;
     }
 
     footer {
-      margin-top: 20px;
-      font-size: 0.8rem;
-      opacity: 0.7;
+      text-align: center;
+      padding: 30px 0;
+      color: #64748b;
+      font-size: 0.85rem;
     }
   </style>
 </head>
 <body>
 
-  <div class="card">
-    <h1>🔥 Word Counter</h1>
-    <p class="subtitle">Created by <b>Swayam Maheshwari</b></p>
+  <div class="glow-bg"></div>
+  <div class="glow-bg-2"></div>
 
-    <textarea id="textInput" placeholder="Type or paste your text here to see the magic..."></textarea>
+  <div class="container">
 
-    <div class="btn-container">
-      <button class="btn" onclick="clearText()">Clear Text</button>
-      <button class="btn" style="background: linear-gradient(45deg, #0070f3, #00dfd8);" onclick="copyText()">Copy Text</button>
+    <!-- HEADER BANNER -->
+    <div class="glass-card header-banner">
+      <h1 class="glowing-title">🔥 Crazy Text Utilities</h1>
+      <p class="sub-tagline">Advanced Live Text Analyzer & Web Tools Suite</p>
     </div>
 
-    <div class="stats-grid">
-      <div class="stat-box">
-        <div class="stat-number" id="wordCount">0</div>
-        <div class="stat-label">Words</div>
+    <!-- MAIN TEXT UTILITY TOOL -->
+    <div class="glass-card">
+      <div class="section-title">⚡ Smart Text & Word Analyzer</div>
+      
+      <textarea id="textInput" placeholder="Paste or type your content here to analyze in real-time..."></textarea>
+
+      <div class="btn-toolbar">
+        <button class="action-btn" onclick="clearText()">Clear</button>
+        <button class="action-btn" onclick="copyText()">Copy</button>
+        <button class="action-btn" onclick="toUpper()">UPPERCASE</button>
+        <button class="action-btn" onclick="toLower()">lowercase</button>
+        <button class="action-btn" onclick="speakText()">🔊 Listen Audio</button>
       </div>
-      <div class="stat-box">
-        <div class="stat-number" id="charCount">0</div>
-        <div class="stat-label">Characters</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-number" id="sentenceCount">0</div>
-        <div class="stat-label">Sentences</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-number" id="readTime">0m</div>
-        <div class="stat-label">Read Time</div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-val" id="wordCount">0</div>
+          <div class="stat-lbl">Words</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="charCount">0</div>
+          <div class="stat-lbl">Characters</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="sentenceCount">0</div>
+          <div class="stat-lbl">Sentences</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="readTime">0m</div>
+          <div class="stat-lbl">Reading Time</div>
+        </div>
       </div>
     </div>
 
-    <footer>Powered by GitHub Pages • Fast & Minimal</footer>
+    <!-- QUIZ / INTERACTIVE SECTION -->
+    <div class="glass-card">
+      <div class="section-title">🎯 Quick Brain Teaser</div>
+      <p style="color: #94a3b8; font-size:0.9rem; margin-bottom:15px;">Test your knowledge in seconds!</p>
+      
+      <div id="quiz-container">
+        <p id="quiz-question" style="font-weight:600;">Q: What does 'HTML' stand for?</p>
+        <div class="quiz-option" onclick="checkQuiz(this, false)">Hyperlinks and Text Markup Language</div>
+        <div class="quiz-option" onclick="checkQuiz(this, true)">Hyper Text Markup Language</div>
+        <div class="quiz-option" onclick="checkQuiz(this, false)">Home Tool Markup Language</div>
+      </div>
+      <p id="quiz-result" style="margin-top:15px; font-weight:bold;"></p>
+    </div>
+
+    <!-- FAQ SECTION -->
+    <div class="glass-card">
+      <div class="section-title">❓ Frequently Asked Questions (FAQ)</div>
+      <div style="margin-top:15px;">
+        <div class="faq-q">Q: Is this tool free to use?</div>
+        <div class="faq-a">Yes, 100% free and client-side processing ensuring privacy.</div>
+        
+        <div class="faq-q">Q: Can I connect with the creator for custom web development?</div>
+        <div class="faq-a">Yes! Direct WhatsApp contact button is given in the profile section below.</div>
+      </div>
+    </div>
+
+    <!-- DEDICATED 3D CREATOR PROFILE SECTION (AT BOTTOM) -->
+    <div class="creator-card">
+      <div class="creator-badge">MEET THE CREATOR</div>
+      
+      <!-- 3D Photo Container -->
+      <div class="photo-frame-3d">
+        <img src="my-photo.jpg" alt="Swayam Maheshwari" class="creator-photo" onerror="this.src='https://via.placeholder.com/300x350/6366f1/ffffff?text=Swayam+Maheshwari'">
+      </div>
+
+      <div class="creator-name">Swayam Maheshwari</div>
+      <div class="creator-title">Digital Creator & Lead Web Developer</div>
+
+      <p style="color: #94a3b8; font-size: 0.95rem; max-width: 500px; margin: 0 auto 20px; line-height: 1.6;">
+        Specialized in creating high-performance, aesthetic web platforms and interactive tools. Have a query or want to collaborate? Connect directly below!
+      </p>
+
+      <!-- DIRECT WHATSAPP INTEGRATION WITH YOUR NUMBER -->
+      <a href="https://wa.me/917976508494?text=Hi%20Swayam,%20I%20visited%20your%20website!" target="_blank" class="whatsapp-btn-3d">
+        💬 Chat on WhatsApp (+91 7976508494)
+      </a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      Crafted with precision & passion by <b>Swayam Maheshwari</b> • © 2026 All Rights Reserved
+    </footer>
+
   </div>
 
   <script>
@@ -178,30 +415,60 @@
     const sentenceCount = document.getElementById('sentenceCount');
     const readTime = document.getElementById('readTime');
 
-    input.addEventListener('input', () => {
+    input.addEventListener('input', updateStats);
+
+    function updateStats() {
       const text = input.value.trim();
-
       charCount.innerText = input.value.length;
-
       const words = text ? text.split(/\s+/).filter(w => w.length > 0) : [];
       wordCount.innerText = words.length;
-
       const sentences = text ? text.split(/[.!?]+/).filter(s => s.trim().length > 0) : [];
       sentenceCount.innerText = sentences.length;
-
       const minutes = Math.ceil(words.length / 200);
       readTime.innerText = words.length > 0 ? minutes + 'm' : '0m';
-    });
+    }
 
     function clearText() {
       input.value = '';
-      input.dispatchEvent(new Event('input'));
+      updateStats();
     }
 
     function copyText() {
       if(input.value) {
         navigator.clipboard.writeText(input.value);
         alert('Text copied to clipboard!');
+      }
+    }
+
+    function toUpper() {
+      input.value = input.value.toUpperCase();
+      updateStats();
+    }
+
+    function toLower() {
+      input.value = input.value.toLowerCase();
+      updateStats();
+    }
+
+    function speakText() {
+      if(input.value) {
+        const utterance = new SpeechSynthesisUtterance(input.value);
+        window.speechSynthesis.speak(utterance);
+      }
+    }
+
+    function checkQuiz(element, isCorrect) {
+      const resultText = document.getElementById('quiz-result');
+      if(isCorrect) {
+        element.style.background = 'rgba(34, 197, 94, 0.3)';
+        element.style.borderColor = '#22c55e';
+        resultText.style.color = '#22c55e';
+        resultText.innerText = '🎉 Correct Answer! Great Job!';
+      } else {
+        element.style.background = 'rgba(239, 68, 68, 0.3)';
+        element.style.borderColor = '#ef4444';
+        resultText.style.color = '#ef4444';
+        resultText.innerText = '❌ Incorrect! Try again.';
       }
     }
   </script>
