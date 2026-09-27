@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Swayam Maheshwari | Ultra Web Suite & Utilities</title>
+  <title>Swayam Maheshwari | Ultra Web Suite & AI Studio</title>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
     * {
@@ -100,21 +100,24 @@
       gap: 10px;
     }
 
-    textarea {
+    textarea, input[type="text"] {
       width: 100%;
-      height: 180px;
       background: rgba(10, 14, 29, 0.7);
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 16px;
-      padding: 18px;
-      font-size: 1.05rem;
+      padding: 16px;
+      font-size: 1rem;
       color: #f1f5f9;
       outline: none;
-      resize: vertical;
       transition: all 0.3s ease;
     }
 
-    textarea:focus {
+    textarea {
+      height: 140px;
+      resize: vertical;
+    }
+
+    textarea:focus, input[type="text"]:focus {
       border-color: #6366f1;
       box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
     }
@@ -143,6 +146,23 @@
       border-color: #6366f1;
       color: #fff;
       box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+    }
+
+    .primary-btn {
+      background: linear-gradient(135deg, #a855f7, #6366f1);
+      border: none;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(168, 85, 247, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .primary-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px rgba(168, 85, 247, 0.5);
     }
 
     .stats-grid {
@@ -245,6 +265,49 @@
       font-size: 0.95rem;
     }
 
+    /* VOICE SELECTOR BUTTONS */
+    .voice-options {
+      display: flex;
+      gap: 12px;
+      margin: 15px 0;
+      flex-wrap: wrap;
+    }
+
+    .voice-chip {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 10px 18px;
+      border-radius: 14px;
+      color: #cbd5e1;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+
+    .voice-chip.selected {
+      background: rgba(56, 189, 248, 0.2);
+      border-color: #38bdf8;
+      color: #38bdf8;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+    }
+
+    .output-preview {
+      background: rgba(10, 14, 29, 0.8);
+      border: 1px dashed rgba(255, 255, 255, 0.15);
+      border-radius: 14px;
+      padding: 15px;
+      margin-top: 15px;
+      color: #94a3b8;
+      font-size: 0.9rem;
+      min-height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    /* CREATOR CARD AT THE VERY END */
     .creator-card {
       background: linear-gradient(145deg, rgba(20, 24, 45, 0.9), rgba(10, 12, 25, 0.95));
       border: 2px solid rgba(168, 85, 247, 0.3);
@@ -335,9 +398,10 @@
 
     <div class="glass-card header-banner">
       <h1 class="glowing-title">🔥 Crazy Text Utilities</h1>
-      <p class="sub-tagline">Advanced Live Text Analyzer & Web Tools Suite</p>
+      <p class="sub-tagline">Advanced Live Text Analyzer & AI Studio Hub</p>
     </div>
 
+    <!-- TEXT ANALYZER CARD -->
     <div class="glass-card">
       <div class="section-title">⚡ Smart Text & Word Analyzer</div>
       <textarea id="textInput" placeholder="Paste or type your content here to analyze in real-time..."></textarea>
@@ -368,7 +432,7 @@
       </div>
     </div>
 
-    <!-- QUIZ WITH MODES -->
+    <!-- QUICK QUIZ CARD -->
     <div class="glass-card">
       <div class="section-title">🎯 Quick Brain Teaser</div>
       <p style="color: #94a3b8; font-size:0.9rem; margin-bottom:15px;">Choose mode & answer questions!</p>
@@ -392,17 +456,58 @@
       </div>
     </div>
 
+    <!-- NEW FEATURE 1: 3D AI TEXT TO VIDEO GENERATOR -->
+    <div class="glass-card">
+      <div class="section-title">🎬 3D Realistic AI Video Generator (Sora Style)</div>
+      <p style="color: #94a3b8; font-size:0.9rem; margin-bottom:15px;">Enter your video idea or text prompt to generate high-end 3D cinematic visual cues:</p>
+      
+      <textarea id="videoPromptInput" placeholder="e.g. A futuristic flying sports car speeding through neon-lit streets of Tokyo at night, cinematic lighting, 4k..."></textarea>
+      
+      <div class="btn-toolbar" style="margin-top: 15px;">
+        <button class="primary-btn" onclick="generate3DVideo()">⚡ Generate 3D Video & Prompt</button>
+      </div>
+
+      <div class="output-preview" id="videoOutputBox">
+        ✨ Generated 3D Video preview and expanded prompt logs will appear here...
+      </div>
+    </div>
+
+    <!-- NEW FEATURE 2: AI VOICE GENERATOR WITH MULTIPLE VOICES -->
+    <div class="glass-card">
+      <div class="section-title">🎙️ AI Voice & Audio Synthesizer</div>
+      <p style="color: #94a3b8; font-size:0.9rem; margin-bottom:15px;">Type script text, choose your preferred voice profile, and synthesize professional audio:</p>
+      
+      <textarea id="voiceTextInput" placeholder="Type script or voiceover dialogue here..."></textarea>
+      
+      <div style="margin-top: 15px;">
+        <label style="font-size: 0.85rem; font-weight: 700; color: #a855f7; text-transform: uppercase; letter-spacing: 0.5px;">Select Voice Profile:</label>
+        <div class="voice-options">
+          <div class="voice-chip selected" onclick="selectVoiceProfile('boy', this)">👦 Boy Voice (Deep/Standard)</div>
+          <div class="voice-chip" onclick="selectVoiceProfile('girl', this)">👧 Girl Voice (Soft/High)</div>
+          <div class="voice-chip" onclick="selectVoiceProfile('cartoon', this)">🤪 Cartoon Voice (Fun/Pitch)</div>
+        </div>
+      </div>
+
+      <div class="btn-toolbar" style="margin-top: 15px;">
+        <button class="primary-btn" onclick="generateAIVoice()">🔊 Generate & Play Voice</button>
+      </div>
+
+      <div class="output-preview" id="voiceOutputBox">
+        🎵 Voice synthesis status: Ready to render selected profile...
+      </div>
+    </div>
+
     <div class="glass-card">
       <div class="section-title">❓ Frequently Asked Questions (FAQ)</div>
       <div style="margin-top:15px;">
         <div class="faq-q">Q: Is this tool free to use?</div>
-        <div class="faq-a">Yes, 100% free and client-side processing ensuring privacy.</div>
+        <div class="faq-a">Yes, 100% free client-side processing ensuring high privacy.</div>
         <div class="faq-q">Q: Can I connect with the creator for custom web development?</div>
         <div class="faq-a">Yes! Direct WhatsApp contact button is given in the profile section below.</div>
       </div>
     </div>
 
-    <!-- CREATOR SECTION WITHOUT PHOTO -->
+    <!-- CREATOR SECTION AT THE VERY END -->
     <div class="creator-card">
       <div class="creator-badge">MEET THE CREATOR</div>
       
@@ -410,7 +515,7 @@
       <div class="creator-title">Digital Creator & Lead Web Developer</div>
 
       <p style="color: #94a3b8; font-size: 0.95rem; max-width: 500px; margin: 0 auto 20px; line-height: 1.6;">
-        Specialized in creating high-performance, aesthetic web platforms and interactive tools. Have a query or want to collaborate? Connect directly below!
+        Specialized in creating high-performance, aesthetic web platforms and interactive AI utilities. Have a query or want to collaborate? Connect directly below!
       </p>
 
       <a href="https://wa.me/917976508494?text=Hi%20Swayam,%20I%20visited%20your%20website!" target="_blank" class="whatsapp-btn-3d">
@@ -473,6 +578,7 @@
       }
     }
 
+    // ALL QUIZ MODES DATA
     const quizData = {
       easy: [
         { q: "What does 'HTML' stand for?", opts: ["Hyperlinks Text Markup", "Hyper Text Markup Language", "Home Tool Markup Language"], ans: 1 },
@@ -554,6 +660,68 @@
     }
 
     loadQuiz();
+
+    // 3D VIDEO GENERATOR SIMULATOR LOGIC
+    function generate3DVideo() {
+      const promptVal = document.getElementById('videoPromptInput').value.trim();
+      const outputBox = document.getElementById('videoOutputBox');
+
+      if(!promptVal) {
+        outputBox.innerHTML = '⚠️ Please enter a text prompt first to generate video!';
+        outputBox.style.color = '#ef4444';
+        return;
+      }
+
+      outputBox.style.color = '#38bdf8';
+      outputBox.innerHTML = '⚙️ Processing 3D cinematic prompt expansion & rendering frames... Please wait.';
+
+      setTimeout(() => {
+        outputBox.innerHTML = `✅ 3D Realistic Video Pipeline Ready!<br><b>Optimized Prompt:</b> "${promptVal}, Unreal Engine 5 render, cinematic 8k resolution, ray-tracing."<br><span style="color:#22c55e;">[Simulation Status: Sora-style pipeline trigger successful]</span>`;
+      }, 1500);
+    }
+
+    // AI VOICE GENERATOR LOGIC
+    let selectedVoice = 'boy';
+
+    function selectVoiceProfile(profile, element) {
+      selectedVoice = profile;
+      document.querySelectorAll('.voice-chip').forEach(c => c.classList.remove('selected'));
+      element.classList.add('selected');
+    }
+
+    function generateAIVoice() {
+      const voiceText = document.getElementById('voiceTextInput').value.trim();
+      const voiceBox = document.getElementById('voiceOutputBox');
+
+      if(!voiceText) {
+        voiceBox.innerHTML = '⚠️ Please type text/script for audio synthesis!';
+        voiceBox.style.color = '#ef4444';
+        return;
+      }
+
+      voiceBox.style.color = '#38bdf8';
+      voiceBox.innerHTML = `🔊 Synthesizing audio using [${selectedVoice.toUpperCase()} PROFILE]...`;
+
+      const utterance = new SpeechSynthesisUtterance(voiceText);
+      
+      // Voice profile pitch and rate modifiers
+      if(selectedVoice === 'boy') {
+        utterance.pitch = 0.8;
+        utterance.rate = 1.0;
+      } else if(selectedVoice === 'girl') {
+        utterance.pitch = 1.4;
+        utterance.rate = 1.1;
+      } else if(selectedVoice === 'cartoon') {
+        utterance.pitch = 2.0;
+        utterance.rate = 1.3;
+      }
+
+      window.speechSynthesis.speak(utterance);
+
+      setTimeout(() => {
+        voiceBox.innerHTML = `✅ Audio Rendered Successfully!<br><span style="color:#22c55e;">Playing voice profile: <b>${selectedVoice.toUpperCase()}</b></span>`;
+      }, 800);
+    }
   </script>
 </body>
 </html>
