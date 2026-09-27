@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Swayam Maheshwari | Ultra Web Suite & AI Studio</title>
+  <title>Swayam Maheshwari | AI Video Studio Pro</title>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
     * {
@@ -113,7 +113,7 @@
     }
 
     textarea {
-      height: 140px;
+      height: 120px;
       resize: vertical;
     }
 
@@ -163,6 +163,34 @@
     .primary-btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 15px 30px rgba(168, 85, 247, 0.5);
+    }
+
+    .sample-hint-box {
+      background: rgba(168, 85, 247, 0.1);
+      border: 1px dashed rgba(168, 85, 247, 0.4);
+      padding: 10px 14px;
+      border-radius: 10px;
+      margin-bottom: 12px;
+      font-size: 0.85rem;
+      color: #d8b4fe;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .use-sample-btn {
+      background: #a855f7;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .use-sample-btn:hover {
+      background: #9333ea;
     }
 
     .stats-grid {
@@ -265,6 +293,23 @@
       font-size: 0.95rem;
     }
 
+    /* VIDEO PREVIEW CONTAINER */
+    .video-container {
+      margin-top: 15px;
+      background: #000;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      text-align: center;
+      position: relative;
+    }
+
+    .video-container video {
+      width: 100%;
+      max-height: 280px;
+      display: block;
+    }
+
     /* VOICE SELECTOR BUTTONS */
     .voice-options {
       display: flex;
@@ -300,11 +345,49 @@
       margin-top: 15px;
       color: #94a3b8;
       font-size: 0.9rem;
-      min-height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      text-align: left;
+    }
+
+    /* PAID / PRO BANNER POPUP */
+    .paywall-box {
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(168, 85, 247, 0.15));
+      border: 1px solid #ef4444;
+      border-radius: 16px;
+      padding: 20px;
+      margin-top: 15px;
       text-align: center;
+    }
+
+    .paywall-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #f87171;
+      margin-bottom: 6px;
+    }
+
+    .paywall-desc {
+      font-size: 0.88rem;
+      color: #cbd5e1;
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+
+    .pay-btn {
+      background: linear-gradient(135deg, #ef4444, #f97316);
+      color: #fff;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(239, 68, 68, 0.4);
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .pay-btn:hover {
+      transform: scale(1.05);
     }
 
     /* CREATOR CARD AT THE VERY END */
@@ -398,7 +481,7 @@
 
     <div class="glass-card header-banner">
       <h1 class="glowing-title">🔥 Crazy Text Utilities</h1>
-      <p class="sub-tagline">Advanced Live Text Analyzer & AI Studio Hub</p>
+      <p class="sub-tagline">Advanced Live Text Analyzer & AI Video Studio Pro</p>
     </div>
 
     <!-- TEXT ANALYZER CARD -->
@@ -456,23 +539,27 @@
       </div>
     </div>
 
-    <!-- NEW FEATURE 1: 3D AI TEXT TO VIDEO GENERATOR -->
+    <!-- 3D AI TEXT TO VIDEO GENERATOR WITH SAMPLE & PAID MODEL -->
     <div class="glass-card">
-      <div class="section-title">🎬 3D Realistic AI Video Generator (Sora Style)</div>
-      <p style="color: #94a3b8; font-size:0.9rem; margin-bottom:15px;">Enter your video idea or text prompt to generate high-end 3D cinematic visual cues:</p>
+      <div class="section-title">🎬 3D Realistic AI Video Generator (Sora Pro)</div>
+      <p style="color: #94a3b8; font-size:0.9rem; margin-bottom:12px;">Test the engine with sample prompt or enter custom text:</p>
       
-      <textarea id="videoPromptInput" placeholder="e.g. A futuristic flying sports car speeding through neon-lit streets of Tokyo at night, cinematic lighting, 4k..."></textarea>
+      <!-- SAMPLE PROMPT HINT BAR -->
+      <div class="sample-hint-box">
+        <span>💡 <b>Sample Prompt:</b> "A futuristic flying car in neon cyber city"</span>
+        <button class="use-sample-btn" onclick="fillSamplePrompt()">Try Sample</button>
+      </div>
+
+      <textarea id="videoPromptInput" placeholder="Enter your 3D video prompt here..."></textarea>
       
       <div class="btn-toolbar" style="margin-top: 15px;">
-        <button class="primary-btn" onclick="generate3DVideo()">⚡ Generate 3D Video & Prompt</button>
+        <button class="primary-btn" onclick="handleVideoGeneration()">⚡ Generate 3D Video</button>
       </div>
 
-      <div class="output-preview" id="videoOutputBox">
-        ✨ Generated 3D Video preview and expanded prompt logs will appear here...
-      </div>
+      <div id="videoResultArea"></div>
     </div>
 
-    <!-- NEW FEATURE 2: AI VOICE GENERATOR WITH MULTIPLE VOICES -->
+    <!-- AI VOICE GENERATOR WITH MULTIPLE VOICES -->
     <div class="glass-card">
       <div class="section-title">🎙️ AI Voice & Audio Synthesizer</div>
       <p style="color: #94a3b8; font-size:0.9rem; margin-bottom:15px;">Type script text, choose your preferred voice profile, and synthesize professional audio:</p>
@@ -482,9 +569,9 @@
       <div style="margin-top: 15px;">
         <label style="font-size: 0.85rem; font-weight: 700; color: #a855f7; text-transform: uppercase; letter-spacing: 0.5px;">Select Voice Profile:</label>
         <div class="voice-options">
-          <div class="voice-chip selected" onclick="selectVoiceProfile('boy', this)">👦 Boy Voice (Deep/Standard)</div>
-          <div class="voice-chip" onclick="selectVoiceProfile('girl', this)">👧 Girl Voice (Soft/High)</div>
-          <div class="voice-chip" onclick="selectVoiceProfile('cartoon', this)">🤪 Cartoon Voice (Fun/Pitch)</div>
+          <div class="voice-chip selected" onclick="selectVoiceProfile('boy', this)">👦 Boy Voice</div>
+          <div class="voice-chip" onclick="selectVoiceProfile('girl', this)">👧 Girl Voice</div>
+          <div class="voice-chip" onclick="selectVoiceProfile('cartoon', this)">🤪 Cartoon Voice</div>
         </div>
       </div>
 
@@ -500,10 +587,10 @@
     <div class="glass-card">
       <div class="section-title">❓ Frequently Asked Questions (FAQ)</div>
       <div style="margin-top:15px;">
-        <div class="faq-q">Q: Is this tool free to use?</div>
-        <div class="faq-a">Yes, 100% free client-side processing ensuring high privacy.</div>
-        <div class="faq-q">Q: Can I connect with the creator for custom web development?</div>
-        <div class="faq-a">Yes! Direct WhatsApp contact button is given in the profile section below.</div>
+        <div class="faq-q">Q: Is video generation free?</div>
+        <div class="faq-a">Sample previews are free to test. Custom AI 3D Video generation requires a Pro Paid plan.</div>
+        <div class="faq-q">Q: How to buy a Paid Plan?</div>
+        <div class="faq-a">Contact the creator directly via WhatsApp for instant API access & subscription.</div>
       </div>
     </div>
 
@@ -518,7 +605,7 @@
         Specialized in creating high-performance, aesthetic web platforms and interactive AI utilities. Have a query or want to collaborate? Connect directly below!
       </p>
 
-      <a href="https://wa.me/917976508494?text=Hi%20Swayam,%20I%20visited%20your%20website!" target="_blank" class="whatsapp-btn-3d">
+      <a href="https://wa.me/917976508494?text=Hi%20Swayam,%20I%20want%20to%20buy%20Paid%20Plan%20for%20AI%20Video%20Generator!" target="_blank" class="whatsapp-btn-3d">
         💬 Chat on WhatsApp (+91 7976508494)
       </a>
     </div>
@@ -661,23 +748,51 @@
 
     loadQuiz();
 
-    // 3D VIDEO GENERATOR SIMULATOR LOGIC
-    function generate3DVideo() {
+    const samplePromptText = "A futuristic flying car in neon cyber city";
+
+    function fillSamplePrompt() {
+      document.getElementById('videoPromptInput').value = samplePromptText;
+    }
+
+    // VIDEO GENERATION / PAYWALL LOGIC
+    function handleVideoGeneration() {
       const promptVal = document.getElementById('videoPromptInput').value.trim();
-      const outputBox = document.getElementById('videoOutputBox');
+      const resultArea = document.getElementById('videoResultArea');
 
       if(!promptVal) {
-        outputBox.innerHTML = '⚠️ Please enter a text prompt first to generate video!';
-        outputBox.style.color = '#ef4444';
+        resultArea.innerHTML = '<div class="output-preview" style="color:#ef4444;">⚠️ Please enter a prompt or use sample prompt!</div>';
         return;
       }
 
-      outputBox.style.color = '#38bdf8';
-      outputBox.innerHTML = '⚙️ Processing 3D cinematic prompt expansion & rendering frames... Please wait.';
-
-      setTimeout(() => {
-        outputBox.innerHTML = `✅ 3D Realistic Video Pipeline Ready!<br><b>Optimized Prompt:</b> "${promptVal}, Unreal Engine 5 render, cinematic 8k resolution, ray-tracing."<br><span style="color:#22c55e;">[Simulation Status: Sora-style pipeline trigger successful]</span>`;
-      }, 1500);
+      // Check if user entered the exact sample prompt or something custom
+      if(promptVal.toLowerCase() === samplePromptText.toLowerCase()) {
+        // Show Sample Video Player
+        resultArea.innerHTML = `
+          <div class="output-preview">
+            <div style="color: #22c55e; font-weight: 700; margin-bottom: 8px;">✅ Sample 3D AI Video Rendered Successfully!</div>
+            <div class="video-container">
+              <video controls autoplay muted loop>
+                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                Your browser does not support video tag.
+              </video>
+            </div>
+            <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 8px; text-align:center;">🎬 Playing free preview sample video. Try custom text to test Pro features.</div>
+          </div>
+        `;
+      } else {
+        // Show Paywall / Paid Plan Required Box
+        resultArea.innerHTML = `
+          <div class="paywall-box">
+            <div class="paywall-title">🔒 PRO FEATURE: PAID PLAN REQUIRED</div>
+            <div class="paywall-desc">
+              Custom AI 3D Video Generation requires server-side GPU rendering resources and Sora Pro API access. Free tier only supports sample demo videos.
+            </div>
+            <a href="https://wa.me/917976508494?text=Hi%20Swayam,%20I%20want%20to%20unlock%20Paid%20AI%20Video%20Generator%20plan!" target="_blank" class="pay-btn">
+              💎 Unlock Pro Access (Contact Creator)
+            </a>
+          </div>
+        `;
+      }
     }
 
     // AI VOICE GENERATOR LOGIC
@@ -704,7 +819,6 @@
 
       const utterance = new SpeechSynthesisUtterance(voiceText);
       
-      // Voice profile pitch and rate modifiers
       if(selectedVoice === 'boy') {
         utterance.pitch = 0.8;
         utterance.rate = 1.0;
