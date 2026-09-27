@@ -754,7 +754,7 @@
       document.getElementById('videoPromptInput').value = samplePromptText;
     }
 
-    // VIDEO GENERATION / PAYWALL LOGIC
+    // VIDEO GENERATION / PAYWALL LOGIC (FIXED VIDEO PLAYER CODE)
     function handleVideoGeneration() {
       const promptVal = document.getElementById('videoPromptInput').value.trim();
       const resultArea = document.getElementById('videoResultArea');
@@ -771,9 +771,9 @@
           <div class="output-preview">
             <div style="color: #22c55e; font-weight: 700; margin-bottom: 8px;">✅ Sample 3D AI Video Rendered Successfully!</div>
             <div class="video-container">
-              <video controls autoplay muted loop>
+              <video controls autoplay muted loop playsinline>
                 <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
-                Your browser does not support video tag.
+                Aapka browser video tag ko support nahi karta.
               </video>
             </div>
             <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 8px; text-align:center;">🎬 Playing free preview sample video. Try custom text to test Pro features.</div>
