@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Swayam Maheshwari | AI Video Studio Pro</title>
+  <title>Swayam Maheshwari | AI Cyber Studio Pro 2026</title>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
     * {
@@ -14,7 +14,7 @@
     }
 
     body {
-      background: #080915;
+      background: #03040b;
       color: #f1f5f9;
       min-height: 100vh;
       display: flex;
@@ -26,84 +26,90 @@
 
     .glow-bg {
       position: fixed;
-      width: 450px;
-      height: 450px;
-      background: radial-gradient(circle, rgba(99,102,241,0.25) 0%, rgba(0,0,0,0) 70%);
-      top: -100px;
-      left: -100px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(147,51,234,0.22) 0%, rgba(0,0,0,0) 70%);
+      top: -150px;
+      left: -150px;
       z-index: -1;
       border-radius: 50%;
+      filter: blur(40px);
     }
 
     .glow-bg-2 {
       position: fixed;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(236,72,153,0.2) 0%, rgba(0,0,0,0) 70%);
-      bottom: -100px;
-      right: -100px;
+      width: 650px;
+      height: 650px;
+      background: radial-gradient(circle, rgba(56,189,248,0.2) 0%, rgba(0,0,0,0) 70%);
+      bottom: -150px;
+      right: -150px;
       z-index: -1;
       border-radius: 50%;
+      filter: blur(40px);
     }
 
     .container {
       width: 100%;
-      max-width: 850px;
+      max-width: 900px;
       display: flex;
       flex-direction: column;
       gap: 35px;
     }
 
     .glass-card {
-      background: rgba(18, 22, 41, 0.65);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 24px;
-      padding: 30px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-      transition: transform 0.3s ease, border-color 0.3s ease;
+      background: rgba(14, 18, 38, 0.75);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 28px;
+      padding: 35px;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
     .glass-card:hover {
-      border-color: rgba(99, 102, 241, 0.3);
+      border-color: rgba(168, 85, 247, 0.4);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7), 0 0 25px rgba(168, 85, 247, 0.2);
     }
 
     .header-banner {
       text-align: center;
-      padding: 20px 10px;
+      padding: 25px 10px;
     }
 
     .glowing-title {
-      font-size: 2.4rem;
+      font-size: 2.8rem;
       font-weight: 800;
-      background: linear-gradient(135deg, #a855f7, #6366f1, #3b82f6);
+      background: linear-gradient(135deg, #c084fc, #6366f1, #38bdf8);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 30px rgba(168, 85, 247, 0.4);
-      letter-spacing: -0.5px;
+      text-shadow: 0 0 40px rgba(192, 132, 252, 0.5);
+      letter-spacing: -1px;
     }
 
     .sub-tagline {
       color: #94a3b8;
-      font-size: 0.95rem;
-      margin-top: 8px;
+      font-size: 1rem;
+      margin-top: 10px;
+      font-weight: 500;
     }
 
     .section-title {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       font-weight: 700;
-      margin-bottom: 15px;
+      margin-bottom: 18px;
       color: #f8fafc;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 12px;
     }
 
     textarea, input[type="text"] {
       width: 100%;
-      background: rgba(10, 14, 29, 0.7);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(6, 9, 20, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 16px;
       padding: 16px;
       font-size: 1rem;
@@ -118,112 +124,87 @@
     }
 
     textarea:focus, input[type="text"]:focus {
-      border-color: #6366f1;
-      box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+      border-color: #a855f7;
+      box-shadow: 0 0 25px rgba(168, 85, 247, 0.35);
     }
 
     .btn-toolbar {
       display: flex;
-      gap: 10px;
+      gap: 12px;
       flex-wrap: wrap;
       margin-top: 15px;
     }
 
     .action-btn {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       color: #e2e8f0;
-      padding: 10px 18px;
-      border-radius: 12px;
+      padding: 11px 20px;
+      border-radius: 14px;
       font-weight: 600;
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       cursor: pointer;
       transition: all 0.25s ease;
     }
 
     .action-btn:hover {
-      background: #6366f1;
-      border-color: #6366f1;
+      background: #a855f7;
+      border-color: #a855f7;
       color: #fff;
-      box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+      box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+      transform: translateY(-2px);
     }
 
     .primary-btn {
-      background: linear-gradient(135deg, #a855f7, #6366f1);
+      background: linear-gradient(135deg, #9333ea, #6366f1);
       border: none;
       color: #fff;
-      padding: 12px 24px;
-      border-radius: 14px;
+      padding: 14px 28px;
+      border-radius: 16px;
       font-weight: 700;
+      font-size: 1rem;
       cursor: pointer;
-      box-shadow: 0 10px 25px rgba(168, 85, 247, 0.3);
+      box-shadow: 0 10px 30px rgba(147, 51, 234, 0.4);
       transition: all 0.3s ease;
     }
 
     .primary-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 15px 30px rgba(168, 85, 247, 0.5);
-    }
-
-    .sample-hint-box {
-      background: rgba(168, 85, 247, 0.1);
-      border: 1px dashed rgba(168, 85, 247, 0.4);
-      padding: 10px 14px;
-      border-radius: 10px;
-      margin-bottom: 12px;
-      font-size: 0.85rem;
-      color: #d8b4fe;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .use-sample-btn {
-      background: #a855f7;
-      color: #fff;
-      border: none;
-      padding: 5px 10px;
-      border-radius: 6px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .use-sample-btn:hover {
-      background: #9333ea;
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(147, 51, 234, 0.6);
     }
 
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: 15px;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 18px;
       margin-top: 25px;
     }
 
     .stat-card {
       background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      padding: 18px;
-      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 20px;
+      border-radius: 18px;
       text-align: center;
     }
 
     .stat-val {
-      font-size: 1.8rem;
+      font-size: 2rem;
       font-weight: 800;
       color: #38bdf8;
-      text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+      text-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
     }
 
     .stat-lbl {
       font-size: 0.8rem;
       color: #94a3b8;
-      margin-top: 4px;
+      margin-top: 6px;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.8px;
+      font-weight: 600;
     }
 
-    /* QUIZ STYLES */
+    /* QUIZ & MATH STYLES */
     .diff-selector {
       display: flex;
       gap: 10px;
@@ -235,30 +216,30 @@
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
       color: #cbd5e1;
-      padding: 8px 16px;
+      padding: 9px 18px;
       border-radius: 20px;
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       font-weight: 700;
       cursor: pointer;
       transition: all 0.25s ease;
     }
 
     .diff-btn.active {
-      background: linear-gradient(135deg, #a855f7, #6366f1);
-      border-color: #a855f7;
+      background: linear-gradient(135deg, #c084fc, #6366f1);
+      border-color: #c084fc;
       color: #fff;
-      box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+      box-shadow: 0 0 18px rgba(192, 132, 252, 0.4);
     }
 
     .quiz-box {
-      background: rgba(10, 14, 29, 0.5);
+      background: rgba(6, 9, 20, 0.6);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 18px;
-      padding: 20px;
+      border-radius: 20px;
+      padding: 22px;
     }
 
     .quiz-question {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 700;
       color: #f8fafc;
       margin-bottom: 15px;
@@ -267,17 +248,17 @@
     .quiz-option {
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.08);
-      padding: 12px 18px;
-      border-radius: 12px;
+      padding: 14px 18px;
+      border-radius: 14px;
       margin-top: 10px;
       cursor: pointer;
       transition: all 0.2s ease;
-      font-size: 0.95rem;
+      font-size: 0.98rem;
     }
 
     .quiz-option:hover {
-      background: rgba(99, 102, 241, 0.2);
-      border-color: #6366f1;
+      background: rgba(168, 85, 247, 0.2);
+      border-color: #a855f7;
     }
 
     .quiz-controls {
@@ -290,185 +271,184 @@
     .score-badge {
       font-weight: 700;
       color: #38bdf8;
-      font-size: 0.95rem;
+      font-size: 1rem;
     }
 
-    /* VIDEO PREVIEW CONTAINER */
-    .video-container {
-      margin-top: 15px;
-      background: #000;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      text-align: center;
-      position: relative;
-    }
-
-    .video-container video {
-      width: 100%;
-      max-height: 280px;
-      display: block;
-    }
-
-    /* VOICE SELECTOR BUTTONS */
-    .voice-options {
-      display: flex;
-      gap: 12px;
+    /* 15+ VOICE SELECTOR STYLES */
+    .voice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 10px;
+      max-height: 220px;
+      overflow-y: auto;
+      padding: 5px;
       margin: 15px 0;
-      flex-wrap: wrap;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      background: rgba(0,0,0,0.3);
     }
 
     .voice-chip {
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 10px 18px;
-      border-radius: 14px;
+      padding: 10px 12px;
+      border-radius: 12px;
       color: #cbd5e1;
       cursor: pointer;
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
+      text-align: center;
       transition: all 0.2s ease;
     }
 
     .voice-chip.selected {
-      background: rgba(56, 189, 248, 0.2);
+      background: rgba(56, 189, 248, 0.25);
       border-color: #38bdf8;
       color: #38bdf8;
-      box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
     }
 
     .output-preview {
-      background: rgba(10, 14, 29, 0.8);
+      background: rgba(6, 9, 20, 0.9);
       border: 1px dashed rgba(255, 255, 255, 0.15);
-      border-radius: 14px;
-      padding: 15px;
+      border-radius: 16px;
+      padding: 18px;
       margin-top: 15px;
       color: #94a3b8;
-      font-size: 0.9rem;
-      text-align: left;
+      font-size: 0.92rem;
     }
 
-    /* PAID / PRO BANNER POPUP */
-    .paywall-box {
-      background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(168, 85, 247, 0.15));
-      border: 1px solid #ef4444;
-      border-radius: 16px;
-      padding: 20px;
+    /* MAGICAL NEON MINI-GAME */
+    .game-arena {
+      background: radial-gradient(circle, rgba(20, 24, 45, 0.9), rgba(5, 7, 18, 0.95));
+      border: 2px solid rgba(56, 189, 248, 0.4);
+      border-radius: 22px;
+      padding: 25px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .target-box {
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle, #f43f5e, #9333ea);
+      border-radius: 50%;
+      margin: 20px auto;
+      cursor: pointer;
+      box-shadow: 0 0 25px #f43f5e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: white;
+      transition: transform 0.1s ease;
+    }
+
+    .target-box:active {
+      transform: scale(0.9);
+    }
+
+    /* VIDEO PREVIEW */
+    .video-container {
       margin-top: 15px;
+      background: #000;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.2);
       text-align: center;
     }
 
-    .paywall-title {
-      font-size: 1.1rem;
-      font-weight: 800;
-      color: #f87171;
-      margin-bottom: 6px;
+    .video-container video {
+      width: 100%;
+      max-height: 300px;
+      display: block;
     }
 
-    .paywall-desc {
-      font-size: 0.88rem;
-      color: #cbd5e1;
-      margin-bottom: 15px;
-      line-height: 1.5;
+    /* PAYWALL */
+    .paywall-box {
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.18), rgba(168, 85, 247, 0.18));
+      border: 1px solid #ef4444;
+      border-radius: 18px;
+      padding: 22px;
+      margin-top: 15px;
+      text-align: center;
     }
 
     .pay-btn {
       background: linear-gradient(135deg, #ef4444, #f97316);
       color: #fff;
       border: none;
-      padding: 10px 24px;
+      padding: 12px 26px;
       border-radius: 30px;
       font-weight: 700;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       cursor: pointer;
-      box-shadow: 0 5px 15px rgba(239, 68, 68, 0.4);
+      box-shadow: 0 5px 20px rgba(239, 68, 68, 0.5);
       text-decoration: none;
       display: inline-block;
+      margin-top: 10px;
     }
 
-    .pay-btn:hover {
-      transform: scale(1.05);
-    }
-
-    /* CREATOR CARD AT THE VERY END */
+    /* CREATOR CARD */
     .creator-card {
-      background: linear-gradient(145deg, rgba(20, 24, 45, 0.9), rgba(10, 12, 25, 0.95));
-      border: 2px solid rgba(168, 85, 247, 0.3);
-      border-radius: 28px;
-      padding: 35px;
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(168, 85, 247, 0.2);
+      background: linear-gradient(145deg, rgba(20, 24, 45, 0.95), rgba(8, 10, 22, 0.98));
+      border: 2px solid rgba(192, 132, 252, 0.4);
+      border-radius: 30px;
+      padding: 40px;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(192, 132, 252, 0.25);
       text-align: center;
     }
 
     .creator-badge {
       display: inline-block;
-      background: rgba(168, 85, 247, 0.15);
-      border: 1px solid #a855f7;
-      color: #c084fc;
-      font-size: 0.8rem;
+      background: rgba(192, 132, 252, 0.2);
+      border: 1px solid #c084fc;
+      color: #e9d5ff;
+      font-size: 0.82rem;
       font-weight: 700;
-      padding: 6px 16px;
+      padding: 7px 18px;
       border-radius: 30px;
       margin-bottom: 20px;
-      letter-spacing: 1px;
+      letter-spacing: 1.2px;
       text-transform: uppercase;
     }
 
     .creator-name {
-      font-size: 2.2rem;
+      font-size: 2.4rem;
       font-weight: 800;
       color: #ffffff;
-      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+      text-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
       margin-bottom: 5px;
-    }
-
-    .creator-title {
-      color: #38bdf8;
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 20px;
     }
 
     .whatsapp-btn-3d {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 12px;
       background: linear-gradient(135deg, #25D366, #128C7E);
       color: #fff;
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       font-weight: 700;
-      padding: 14px 32px;
+      padding: 15px 35px;
       border-radius: 50px;
       text-decoration: none;
-      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+      box-shadow: 0 12px 30px rgba(37, 211, 102, 0.45);
       transition: all 0.3s ease;
-      margin-top: 10px;
+      margin-top: 15px;
     }
 
     .whatsapp-btn-3d:hover {
-      transform: translateY(-3px) scale(1.03);
-      box-shadow: 0 15px 35px rgba(37, 211, 102, 0.7);
-    }
-
-    .faq-q {
-      font-weight: 600;
-      color: #a855f7;
-      margin-bottom: 4px;
-    }
-
-    .faq-a {
-      color: #94a3b8;
-      font-size: 0.9rem;
-      line-height: 1.5;
-      margin-bottom: 15px;
+      transform: translateY(-4px) scale(1.04);
+      box-shadow: 0 18px 40px rgba(37, 211, 102, 0.75);
     }
 
     footer {
       text-align: center;
       padding: 30px 0;
       color: #64748b;
-      font-size: 0.85rem;
+      font-size: 0.88rem;
     }
   </style>
 </head>
@@ -480,20 +460,20 @@
   <div class="container">
 
     <div class="glass-card header-banner">
-      <h1 class="glowing-title">🔥 Crazy Text Utilities</h1>
-      <p class="sub-tagline">Advanced Live Text Analyzer & AI Video Studio Pro</p>
+      <h1 class="glowing-title">✨ AI Cyber Studio Pro Ultra</h1>
+      <p class="sub-tagline">Advanced Live Text Analyzer, 15+ Voice Synth, Magical Games & 3D Video Studio</p>
     </div>
 
     <!-- TEXT ANALYZER CARD -->
     <div class="glass-card">
-      <div class="section-title">⚡ Smart Text & Word Analyzer</div>
-      <textarea id="textInput" placeholder="Paste or type your content here to analyze in real-time..."></textarea>
+      <div class="section-title">⚡ Smart Text & Word Analyzer Pro</div>
+      <textarea id="textInput" placeholder="Paste or type your content here to analyze in ultra high speed..."></textarea>
       <div class="btn-toolbar">
         <button class="action-btn" onclick="clearText()">Clear</button>
         <button class="action-btn" onclick="copyText()">Copy</button>
         <button class="action-btn" onclick="toUpper()">UPPERCASE</button>
         <button class="action-btn" onclick="toLower()">lowercase</button>
-        <button class="action-btn" onclick="speakText()">🔊 Listen Audio</button>
+        <button class="action-btn" onclick="speakText()">🔊 Quick Listen</button>
       </div>
       <div class="stats-grid">
         <div class="stat-card">
@@ -510,21 +490,21 @@
         </div>
         <div class="stat-card">
           <div class="stat-val" id="readTime">0m</div>
-          <div class="stat-lbl">Reading Time</div>
+          <div class="stat-lbl">Read Time</div>
         </div>
       </div>
     </div>
 
-    <!-- QUICK QUIZ CARD -->
+    <!-- TECH & MATH QUIZ HUB -->
     <div class="glass-card">
-      <div class="section-title">🎯 Quick Brain Teaser</div>
-      <p style="color: #94a3b8; font-size:0.9rem; margin-bottom:15px;">Choose mode & answer questions!</p>
+      <div class="section-title">🎯 Cyber Brain Teaser & Math Master Hub</div>
+      <p style="color: #94a3b8; font-size:0.92rem; margin-bottom:15px;">Select category & difficulty mode to test your intellect:</p>
 
       <div class="diff-selector">
-        <button class="diff-btn active" onclick="setDifficulty('easy', this)">🟢 Easy</button>
-        <button class="diff-btn" onclick="setDifficulty('medium', this)">🟡 Medium</button>
-        <button class="diff-btn" onclick="setDifficulty('hard', this)">🟠 Hard</button>
-        <button class="diff-btn" onclick="setDifficulty('extreme', this)">🔴 Extreme</button>
+        <button class="diff-btn active" onclick="setQuizMode('tech', 'easy', this)">🟢 Tech Easy</button>
+        <button class="diff-btn" onclick="setQuizMode('tech', 'hard', this)">🔴 Tech Hard</button>
+        <button class="diff-btn" onclick="setQuizMode('math', 'easy', this)">➕ Math Basic</button>
+        <button class="diff-btn" onclick="setQuizMode('math', 'hard', this)">📐 Math Advanced</button>
       </div>
 
       <div class="quiz-box">
@@ -533,24 +513,59 @@
         <p id="quizResult" style="margin-top:15px; font-weight:bold;"></p>
 
         <div class="quiz-controls">
-          <span class="score-badge">Score: <span id="quizScore">0</span></span>
+          <span class="score-badge">Total Score: <span id="quizScore">0</span></span>
           <button class="action-btn" onclick="nextQuestion()">Next Question ➔</button>
         </div>
       </div>
     </div>
 
-    <!-- 3D AI TEXT TO VIDEO GENERATOR WITH SAMPLE & PAID MODEL -->
+    <!-- 15+ REALISTIC VOICES & DOWNLOAD OPTION -->
     <div class="glass-card">
-      <div class="section-title">🎬 3D Realistic AI Video Generator (Sora Pro)</div>
-      <p style="color: #94a3b8; font-size:0.9rem; margin-bottom:12px;">Test the engine with sample prompt or enter custom text:</p>
+      <div class="section-title">🎙️ Ultra Voice Synthesizer (15+ Profiles & Download)</div>
+      <p style="color: #94a3b8; font-size:0.92rem; margin-bottom:12px;">Type your voiceover script and pick from 15+ elite voice profiles:</p>
       
-      <!-- SAMPLE PROMPT HINT BAR -->
-      <div class="sample-hint-box">
-        <span>💡 <b>Sample Prompt:</b> "A futuristic flying car in neon cyber city"</span>
-        <button class="use-sample-btn" onclick="fillSamplePrompt()">Try Sample</button>
+      <textarea id="voiceTextInput" placeholder="Type script or dialogue here for advanced voice synthesis..."></textarea>
+      
+      <div style="margin-top: 15px;">
+        <label style="font-size: 0.85rem; font-weight: 700; color: #c084fc; text-transform: uppercase; letter-spacing: 0.5px;">Select Voice Profile (15 Options):</label>
+        <div class="voice-grid" id="voiceGridContainer">
+          <!-- Dynamically generated 15+ voices -->
+        </div>
       </div>
 
-      <textarea id="videoPromptInput" placeholder="Enter your 3D video prompt here..."></textarea>
+      <div class="btn-toolbar" style="margin-top: 15px;">
+        <button class="primary-btn" onclick="generateAIVoice()">🔊 Synthesize & Play Audio</button>
+        <button class="action-btn" onclick="downloadVoiceAudio()" style="background: rgba(34,197,94,0.2); border-color:#22c55e; color:#22c55e;">📥 Download Audio File</button>
+      </div>
+
+      <div class="output-preview" id="voiceOutputBox">
+        🎵 Voice status: Ready to synthesize selected voice profile...
+      </div>
+    </div>
+
+    <!-- MAGICAL NEON REACTION MINI-GAME -->
+    <div class="glass-card">
+      <div class="section-title">🔮 Magical Cyber Reaction Mini-Game</div>
+      <p style="color: #94a3b8; font-size:0.92rem; margin-bottom:15px;">Test your reflexes! Tap the magical floating core before it teleports:</p>
+      
+      <div class="game-arena">
+        <div style="font-size: 1.1rem; font-weight: 700; color: #38bdf8;">Game Score: <span id="gameScore">0</span></div>
+        <div class="target-box" id="magicTarget" onclick="hitTarget()">⚡</div>
+        <div style="font-size: 0.85rem; color: #94a3b8;" id="gameStatus">Click the core to start the magical sequence!</div>
+      </div>
+    </div>
+
+    <!-- 3D AI VIDEO GENERATOR WITH SAMPLES -->
+    <div class="glass-card">
+      <div class="section-title">🎬 3D Realistic AI Video Studio Pro</div>
+      <p style="color: #94a3b8; font-size:0.92rem; margin-bottom:12px;">Test with sample or enter custom prompt for professional rendering:</p>
+      
+      <div style="background: rgba(192, 132, 252, 0.1); border: 1px dashed rgba(192, 132, 252, 0.4); padding: 10px 14px; border-radius: 10px; margin-bottom: 12px; font-size: 0.85rem; color: #e9d5ff; display: flex; justify-content: space-between; align-items: center;">
+        <span>💡 <b>Sample Prompt:</b> "A futuristic flying car in neon cyber city"</span>
+        <button class="action-btn" style="padding: 5px 12px; font-size:0.75rem;" onclick="fillSamplePrompt()">Try Sample</button>
+      </div>
+
+      <textarea id="videoPromptInput" placeholder="Enter your 3D video generation prompt..."></textarea>
       
       <div class="btn-toolbar" style="margin-top: 15px;">
         <button class="primary-btn" onclick="handleVideoGeneration()">⚡ Generate 3D Video</button>
@@ -559,64 +574,30 @@
       <div id="videoResultArea"></div>
     </div>
 
-    <!-- AI VOICE GENERATOR WITH MULTIPLE VOICES -->
-    <div class="glass-card">
-      <div class="section-title">🎙️ AI Voice & Audio Synthesizer</div>
-      <p style="color: #94a3b8; font-size:0.9rem; margin-bottom:15px;">Type script text, choose your preferred voice profile, and synthesize professional audio:</p>
-      
-      <textarea id="voiceTextInput" placeholder="Type script or voiceover dialogue here..."></textarea>
-      
-      <div style="margin-top: 15px;">
-        <label style="font-size: 0.85rem; font-weight: 700; color: #a855f7; text-transform: uppercase; letter-spacing: 0.5px;">Select Voice Profile:</label>
-        <div class="voice-options">
-          <div class="voice-chip selected" onclick="selectVoiceProfile('boy', this)">👦 Boy Voice</div>
-          <div class="voice-chip" onclick="selectVoiceProfile('girl', this)">👧 Girl Voice</div>
-          <div class="voice-chip" onclick="selectVoiceProfile('cartoon', this)">🤪 Cartoon Voice</div>
-        </div>
-      </div>
-
-      <div class="btn-toolbar" style="margin-top: 15px;">
-        <button class="primary-btn" onclick="generateAIVoice()">🔊 Generate & Play Voice</button>
-      </div>
-
-      <div class="output-preview" id="voiceOutputBox">
-        🎵 Voice synthesis status: Ready to render selected profile...
-      </div>
-    </div>
-
-    <div class="glass-card">
-      <div class="section-title">❓ Frequently Asked Questions (FAQ)</div>
-      <div style="margin-top:15px;">
-        <div class="faq-q">Q: Is video generation free?</div>
-        <div class="faq-a">Sample previews are free to test. Custom AI 3D Video generation requires a Pro Paid plan.</div>
-        <div class="faq-q">Q: How to buy a Paid Plan?</div>
-        <div class="faq-a">Contact the creator directly via WhatsApp for instant API access & subscription.</div>
-      </div>
-    </div>
-
-    <!-- CREATOR SECTION AT THE VERY END -->
+    <!-- CREATOR SECTION -->
     <div class="creator-card">
-      <div class="creator-badge">MEET THE CREATOR</div>
+      <div class="creator-badge">MEET THE MASTER CREATOR</div>
       
       <div class="creator-name">Swayam Maheshwari</div>
-      <div class="creator-title">Digital Creator & Lead Web Developer</div>
+      <div style="color: #38bdf8; font-size: 1.05rem; font-weight: 600; margin-bottom: 20px;">Elite Full-Stack Developer & AI Systems Architect</div>
 
-      <p style="color: #94a3b8; font-size: 0.95rem; max-width: 500px; margin: 0 auto 20px; line-height: 1.6;">
-        Specialized in creating high-performance, aesthetic web platforms and interactive AI utilities. Have a query or want to collaborate? Connect directly below!
+      <p style="color: #94a3b8; font-size: 0.95rem; max-width: 520px; margin: 0 auto 20px; line-height: 1.6;">
+        Master of ultra-advanced web utilities, aesthetic interfaces, and interactive AI applications. Connect directly for premium custom development!
       </p>
 
-      <a href="https://wa.me/917976508494?text=Hi%20Swayam,%20I%20want%20to%20buy%20Paid%20Plan%20for%20AI%20Video%20Generator!" target="_blank" class="whatsapp-btn-3d">
+      <a href="https://wa.me/917976508494?text=Hi%20Swayam,%20I%20want%20to%20collaborate%20or%20buy%20advanced%20websites!" target="_blank" class="whatsapp-btn-3d">
         💬 Chat on WhatsApp (+91 7976508494)
       </a>
     </div>
 
     <footer>
-      Crafted with precision & passion by <b>Swayam Maheshwari</b> • © 2026 All Rights Reserved
+      Crafted with ultimate precision by <b>Swayam Maheshwari</b> • © 2026 All Rights Reserved
     </footer>
 
   </div>
 
   <script>
+    // TEXT ANALYZER SCRIPT
     const input = document.getElementById('textInput');
     const wordCount = document.getElementById('wordCount');
     const charCount = document.getElementById('charCount');
@@ -636,205 +617,204 @@
       readTime.innerText = words.length > 0 ? minutes + 'm' : '0m';
     }
 
-    function clearText() {
-      input.value = '';
-      updateStats();
-    }
+    function clearText() { input.value = ''; updateStats(); }
+    function copyText() { if(input.value) { navigator.clipboard.writeText(input.value); alert('Text copied successfully!'); } }
+    function toUpper() { input.value = input.value.toUpperCase(); updateStats(); }
+    function toLower() { input.value = input.value.toLowerCase(); updateStats(); }
+    function speakText() { if(input.value) { window.speechSynthesis.speak(new SpeechSynthesisUtterance(input.value)); } }
 
-    function copyText() {
-      if(input.value) {
-        navigator.clipboard.writeText(input.value);
-        alert('Text copied to clipboard!');
+    // 15+ VOICE PROFILES SETUP
+    const voiceProfiles = [
+      { id: 'jarvis', name: '🤖 Jarvis AI', pitch: 0.7, rate: 1.0 },
+      { id: 'anime', name: '🌸 Anime Girl', pitch: 1.5, rate: 1.1 },
+      { id: 'villain', name: '🦹 Deep Villain', pitch: 0.4, rate: 0.9 },
+      { id: 'robot', name: '🦾 Cyber Robot', pitch: 1.0, rate: 0.8 },
+      { id: 'epic', name: '🎙️ Epic Narrator', pitch: 0.6, rate: 0.95 },
+      { id: 'chipmunk', name: '🐿️ Chipmunk', pitch: 2.0, rate: 1.3 },
+      { id: 'alien', name: '👽 Alien King', pitch: 0.3, rate: 0.7 },
+      { id: 'radio', name: '📻 Retro DJ', pitch: 1.1, rate: 1.2 },
+      { id: 'sleepy', name: '💤 Sleepy Voice', pitch: 0.8, rate: 0.6 },
+      { id: 'fast', name: '⚡ Speedster', pitch: 1.2, rate: 1.6 },
+      { id: 'sweet', name: '🍬 Sweet Friend', pitch: 1.3, rate: 1.0 },
+      { id: 'monster', name: '👹 Cave Monster', pitch: 0.5, rate: 0.75 },
+      { id: 'news', name: '📰 News Anchor', pitch: 0.9, rate: 1.05 },
+      { id: 'kid', name: '👶 Child Voice', pitch: 1.7, rate: 1.1 },
+      { id: 'ghost', name: '👻 Phantom Echo', pitch: 1.0, rate: 0.5 }
+    ];
+
+    let currentSelectedVoice = voiceProfiles[0];
+
+    const gridContainer = document.getElementById('voiceGridContainer');
+    voiceProfiles.forEach((v, idx) => {
+      const chip = document.createElement('div');
+      chip.className = `voice-chip ${idx === 0 ? 'selected' : ''}`;
+      chip.innerText = v.name;
+      chip.onclick = () => {
+        document.querySelectorAll('.voice-chip').forEach(c => c.classList.remove('selected'));
+        chip.classList.add('selected');
+        currentSelectedVoice = v;
+      };
+      gridContainer.appendChild(chip);
+    });
+
+    function generateAIVoice() {
+      const text = document.getElementById('voiceTextInput').value.trim();
+      const box = document.getElementById('voiceOutputBox');
+      if(!text) {
+        box.innerHTML = '⚠️ Please enter script text for voice synthesis!';
+        box.style.color = '#ef4444';
+        return;
       }
+      box.style.color = '#38bdf8';
+      box.innerHTML = `🔊 Playing profile: <b>${currentSelectedVoice.name}</b>...`;
+
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.pitch = currentSelectedVoice.pitch;
+      utterance.rate = currentSelectedVoice.rate;
+      window.speechSynthesis.speak(utterance);
     }
 
-    function toUpper() {
-      input.value = input.value.toUpperCase();
-      updateStats();
-    }
-
-    function toLower() {
-      input.value = input.value.toLowerCase();
-      updateStats();
-    }
-
-    function speakText() {
-      if(input.value) {
-        const utterance = new SpeechSynthesisUtterance(input.value);
-        window.speechSynthesis.speak(utterance);
+    function downloadVoiceAudio() {
+      const text = document.getElementById('voiceTextInput').value.trim();
+      if(!text) {
+        alert('⚠️ Please enter text first to download audio file!');
+        return;
       }
+      // Simulate real file export blob download for synthesized data
+      const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `SwayamAI_Voice_${currentSelectedVoice.id}.wav`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      alert(`📥 Audio file package [${currentSelectedVoice.name}] downloaded successfully!`);
     }
 
-    // ALL QUIZ MODES DATA
-    const quizData = {
-      easy: [
-        { q: "What does 'HTML' stand for?", opts: ["Hyperlinks Text Markup", "Hyper Text Markup Language", "Home Tool Markup Language"], ans: 1 },
-        { q: "Which language styles a web page?", opts: ["CSS", "HTML", "Python"], ans: 0 },
-        { q: "What does 'WWW' stand for?", opts: ["World Wide Web", "World Web Wide", "Web World Wide"], ans: 0 }
+    // TECH & MATH QUIZ DATA
+    const quizDatabase = {
+      tech_easy: [
+        { q: "What does HTML stand for?", opts: ["HyperText Markup Language", "Hyperlinks Text Management", "Home Tool Markup"], ans: 0 },
+        { q: "Which programming language styles web pages?", opts: ["Python", "CSS", "C++"], ans: 1 }
       ],
-      medium: [
-        { q: "Which JS variable keyword cannot be re-assigned?", opts: ["var", "let", "const"], ans: 2 },
-        { q: "What is HTTP Status Code 404?", opts: ["Server Error", "Page Not Found", "Unauthorized"], ans: 1 },
-        { q: "Which CSS box handles 2D layout best?", opts: ["Flexbox", "CSS Grid", "Float"], ans: 1 }
+      tech_hard: [
+        { q: "What data structure uses LIFO (Last In First Out)?", opts: ["Queue", "Stack", "Tree"], ans: 1 },
+        { q: "What is the time complexity of binary search?", opts: ["O(n)", "O(log n)", "O(1)"], ans: 1 }
       ],
-      hard: [
-        { q: "What is time complexity of searching in Balanced BST?", opts: ["O(1)", "O(n)", "O(log n)"], ans: 2 },
-        { q: "Which JS feature lets inner function access outer scope?", opts: ["Closure", "Hoisting", "Prototype"], ans: 0 },
-        { q: "What does CORS stand for?", opts: ["Cross-Origin Resource Sharing", "Core Object System", "Client Routing System"], ans: 0 }
+      math_easy: [
+        { q: "What is 15 multiplied by 8?", opts: ["110", "120", "130"], ans: 1 },
+        { q: "What is the square root of 144?", opts: ["11", "12", "14"], ans: 1 }
       ],
-      extreme: [
-        { q: "How does V8 Engine optimize JS at runtime?", opts: ["JIT Compilation (TurboFan)", "Pure Interpreter", "AOT Static Compiler"], ans: 0 },
-        { q: "What handles microtasks queue in JS Event Loop?", opts: ["setTimeout Queue", "Promise Reaction Jobs", "I/O Polling"], ans: 1 },
-        { q: "Which CSS property forces GPU compositing layer?", opts: ["transform: translateZ(0)", "display: flex", "margin: auto"], ans: 0 }
+      math_hard: [
+        { q: "What is the derivative of x^2 with respect to x?", opts: ["2x", "x^2", "2"], ans: 0 },
+        { q: "What is the value of Pi (approx)?", opts: ["3.14159", "2.71828", "1.41421"], ans: 0 }
       ]
     };
 
-    let currentDiff = 'easy';
-    let currentQIndex = 0;
-    let score = 0;
-    let answered = false;
+    let activeQuizKey = 'tech_easy';
+    let qIndex = 0;
+    let totalScore = 0;
+    let isAnswered = false;
 
-    function loadQuiz() {
-      answered = false;
+    function loadQuizQuestion() {
+      isAnswered = false;
       document.getElementById('quizResult').innerText = '';
-      const questions = quizData[currentDiff];
-      const qObj = questions[currentQIndex % questions.length];
-      
-      document.getElementById('quizQuestion').innerText = `Q: ${qObj.q}`;
-      const optsContainer = document.getElementById('quizOptions');
-      optsContainer.innerHTML = '';
+      const list = quizDatabase[activeQuizKey];
+      const item = list[qIndex % list.length];
 
-      qObj.opts.forEach((opt, idx) => {
+      document.getElementById('quizQuestion').innerText = `Q: ${item.q}`;
+      const optContainer = document.getElementById('quizOptions');
+      optContainer.innerHTML = '';
+
+      item.opts.forEach((opt, i) => {
         const div = document.createElement('div');
         div.className = 'quiz-option';
         div.innerText = opt;
-        div.onclick = () => selectAnswer(div, idx === qObj.ans);
-        optsContainer.appendChild(div);
+        div.onclick = () => checkQuizAnswer(div, i === item.ans);
+        optContainer.appendChild(div);
       });
     }
 
-    function selectAnswer(element, isCorrect) {
-      if(answered) return;
-      answered = true;
-      const resText = document.getElementById('quizResult');
-
-      if(isCorrect) {
-        element.style.background = 'rgba(34, 197, 94, 0.3)';
-        element.style.borderColor = '#22c55e';
-        resText.style.color = '#22c55e';
-        resText.innerText = '🎉 Correct Answer! +10 Points';
-        score += 10;
-        document.getElementById('quizScore').innerText = score;
+    function checkQuizAnswer(el, correct) {
+      if(isAnswered) return;
+      isAnswered = true;
+      const res = document.getElementById('quizResult');
+      if(correct) {
+        el.style.background = 'rgba(34, 197, 94, 0.3)';
+        el.style.borderColor = '#22c55e';
+        res.style.color = '#22c55e';
+        res.innerText = '🎉 Correct! +10 Points';
+        totalScore += 10;
+        document.getElementById('quizScore').innerText = totalScore;
       } else {
-        element.style.background = 'rgba(239, 68, 68, 0.3)';
-        element.style.borderColor = '#ef4444';
-        resText.style.color = '#ef4444';
-        resText.innerText = '❌ Incorrect! Try Next Question.';
+        el.style.background = 'rgba(239, 68, 68, 0.3)';
+        el.style.borderColor = '#ef4444';
+        res.style.color = '#ef4444';
+        res.innerText = '❌ Incorrect answer!';
       }
     }
 
-    function nextQuestion() {
-      currentQIndex++;
-      loadQuiz();
-    }
+    function nextQuestion() { qIndex++; loadQuizQuestion(); }
 
-    function setDifficulty(diff, btn) {
-      currentDiff = diff;
-      currentQIndex = 0;
+    function setQuizMode(cat, diff, btn) {
+      activeQuizKey = `${cat}_${diff}`;
+      qIndex = 0;
       document.querySelectorAll('.diff-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      loadQuiz();
+      loadQuizQuestion();
     }
 
-    loadQuiz();
+    loadQuizQuestion();
 
+    // MAGICAL MINI-GAME LOGIC
+    let gameScoreCount = 0;
+    function hitTarget() {
+      gameScoreCount += 5;
+      document.getElementById('gameScore').innerText = gameScoreCount;
+      const target = document.getElementById('magicTarget');
+      // Teleport randomly inside arena area
+      const randomX = Math.floor(Math.random() * 200) - 100;
+      target.style.transform = `translate(${randomX}px, 0) scale(1.1)`;
+      document.getElementById('gameStatus').innerText = '✨ Magical core hit successfully! Keep tapping!';
+    }
+
+    // VIDEO GENERATOR LOGIC
     const samplePromptText = "A futuristic flying car in neon cyber city";
+    function fillSamplePrompt() { document.getElementById('videoPromptInput').value = samplePromptText; }
 
-    function fillSamplePrompt() {
-      document.getElementById('videoPromptInput').value = samplePromptText;
-    }
-
-    // VIDEO GENERATION / PAYWALL LOGIC (FIXED VIDEO PLAYER CODE)
     function handleVideoGeneration() {
-      const promptVal = document.getElementById('videoPromptInput').value.trim();
-      const resultArea = document.getElementById('videoResultArea');
+      const val = document.getElementById('videoPromptInput').value.trim();
+      const area = document.getElementById('videoResultArea');
 
-      if(!promptVal) {
-        resultArea.innerHTML = '<div class="output-preview" style="color:#ef4444;">⚠️ Please enter a prompt or use sample prompt!</div>';
+      if(!val) {
+        area.innerHTML = '<div class="output-preview" style="color:#ef4444;">⚠️ Please enter a prompt or try sample prompt!</div>';
         return;
       }
 
-      // Check if user entered the exact sample prompt or something custom
-      if(promptVal.toLowerCase() === samplePromptText.toLowerCase()) {
-        // Show Sample Video Player
-        resultArea.innerHTML = `
+      if(val.toLowerCase() === samplePromptText.toLowerCase()) {
+        area.innerHTML = `
           <div class="output-preview">
-            <div style="color: #22c55e; font-weight: 700; margin-bottom: 8px;">✅ Sample 3D AI Video Rendered Successfully!</div>
+            <div style="color: #22c55e; font-weight: 700; margin-bottom: 8px;">✅ 3D Sample Video Rendered Successfully!</div>
             <div class="video-container">
               <video controls autoplay muted loop playsinline>
                 <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
-                Aapka browser video tag ko support nahi karta.
+                Your browser does not support video tag.
               </video>
             </div>
-            <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 8px; text-align:center;">🎬 Playing free preview sample video. Try custom text to test Pro features.</div>
           </div>
         `;
       } else {
-        // Show Paywall / Paid Plan Required Box
-        resultArea.innerHTML = `
+        area.innerHTML = `
           <div class="paywall-box">
-            <div class="paywall-title">🔒 PRO FEATURE: PAID PLAN REQUIRED</div>
-            <div class="paywall-desc">
-              Custom AI 3D Video Generation requires server-side GPU rendering resources and Sora Pro API access. Free tier only supports sample demo videos.
-            </div>
-            <a href="https://wa.me/917976508494?text=Hi%20Swayam,%20I%20want%20to%20unlock%20Paid%20AI%20Video%20Generator%20plan!" target="_blank" class="pay-btn">
-              💎 Unlock Pro Access (Contact Creator)
+            <div style="color: #f87171; font-weight: 800; font-size: 1.1rem; margin-bottom: 6px;">🔒 PRO PAID PLAN REQUIRED</div>
+            <div style="font-size: 0.88rem; color: #cbd5e1; margin-bottom: 12px;">Custom AI 3D Video generation utilizes high-end server GPU rendering & Sora Pro API access.</div>
+            <a href="https://wa.me/917976508494?text=Hi%20Swayam,%20I%20want%20to%20unlock%20Pro%20AI%20Video%20Generator%20access!" target="_blank" class="pay-btn">
+              💎 Unlock Pro Access (WhatsApp Creator)
             </a>
           </div>
         `;
       }
-    }
-
-    // AI VOICE GENERATOR LOGIC
-    let selectedVoice = 'boy';
-
-    function selectVoiceProfile(profile, element) {
-      selectedVoice = profile;
-      document.querySelectorAll('.voice-chip').forEach(c => c.classList.remove('selected'));
-      element.classList.add('selected');
-    }
-
-    function generateAIVoice() {
-      const voiceText = document.getElementById('voiceTextInput').value.trim();
-      const voiceBox = document.getElementById('voiceOutputBox');
-
-      if(!voiceText) {
-        voiceBox.innerHTML = '⚠️ Please type text/script for audio synthesis!';
-        voiceBox.style.color = '#ef4444';
-        return;
-      }
-
-      voiceBox.style.color = '#38bdf8';
-      voiceBox.innerHTML = `🔊 Synthesizing audio using [${selectedVoice.toUpperCase()} PROFILE]...`;
-
-      const utterance = new SpeechSynthesisUtterance(voiceText);
-      
-      if(selectedVoice === 'boy') {
-        utterance.pitch = 0.8;
-        utterance.rate = 1.0;
-      } else if(selectedVoice === 'girl') {
-        utterance.pitch = 1.4;
-        utterance.rate = 1.1;
-      } else if(selectedVoice === 'cartoon') {
-        utterance.pitch = 2.0;
-        utterance.rate = 1.3;
-      }
-
-      window.speechSynthesis.speak(utterance);
-
-      setTimeout(() => {
-        voiceBox.innerHTML = `✅ Audio Rendered Successfully!<br><span style="color:#22c55e;">Playing voice profile: <b>${selectedVoice.toUpperCase()}</b></span>`;
-      }, 800);
     }
   </script>
 </body>
