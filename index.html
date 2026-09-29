@@ -3,29 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SWAYAM STUDIO | سُوَايَامْ</title>
+    <title>SWAYAM STUDIO | سُوَايَامْ - Official Store</title>
     
-    <!-- Google Fonts -->
+    <!-- Google Fonts Integration -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800&family=Noto+Naskh+Arabic:wght@500;600;700&display=swap" rel="stylesheet">
     
     <style>
+        /* ==========================================================================
+           1. CORE DESIGN SYSTEM & VARIABLES (OLD MONEY DARK + GOLD ACCENTS)
+           ========================================================================== */
         :root {
-            --bg-primary: #0D0D0D;
-            --bg-card: #161616;
-            --bg-secondary: #1E1E1E;
-            --accent-gold: #C5A059;
-            --accent-green: #238859;
-            --green-light: #1A382B;
-            --text-primary: #F4F1EA;
-            --text-muted: #8E8E93;
-            --border-color: #262626;
+            --bg-dark: #0A0A0A;
+            --bg-card: #141414;
+            --bg-elevated: #1F1F1F;
+            --bg-secondary: #2A2A2A;
+            
+            --gold-primary: #C5A059;
+            --gold-light: #E5C17C;
+            --gold-dim: #8C6F34;
+            
+            --green-meesho: #238859;
+            --green-bg-light: #0D2D1E;
+            
+            --text-main: #F5F5F0;
+            --text-sub: #A0A0A0;
+            --text-muted: #666666;
+            
+            --border-dim: #222222;
+            --border-light: #333333;
+            
             --font-title: 'Cinzel', serif;
             --font-body: 'Montserrat', sans-serif;
             --font-arabic: 'Noto Naskh Arabic', serif;
+            
+            --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.5);
+            --shadow-drawer: -4px 0 24px rgba(0, 0, 0, 0.8);
         }
 
+        /* ==========================================================================
+           2. GLOBAL RESET & BASE STYLES
+           ========================================================================== */
         * {
             margin: 0;
             padding: 0;
@@ -35,229 +54,312 @@
         }
 
         body {
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            padding-bottom: 70px; /* Space for Mobile Bottom Nav */
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            padding-bottom: 75px; /* Bottom Nav Clearance */
+            overflow-x: hidden;
         }
 
-        /* --- 1. Top Header Bar --- */
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            outline: none;
+            background: none;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-light);
+            border-radius: 2px;
+        }
+
+        /* ==========================================================================
+           3. APP HEADER & SEARCH BAR (STICKY TOP)
+           ========================================================================== */
         .app-header {
             position: sticky;
             top: 0;
-            background: var(--bg-primary);
+            background-color: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
             z-index: 1000;
-            border-bottom: 1px solid var(--border-color);
-            padding: 10px 12px;
+            border-bottom: 1px solid var(--border-dim);
+            padding: 10px 14px;
         }
 
-        .header-top {
+        .header-top-row {
             display: flex;
             align-items: center;
             justify-content: space-between;
             margin-bottom: 10px;
         }
 
-        .user-profile-icon {
-            width: 32px;
-            height: 32px;
+        .user-avatar-btn {
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
-            background: var(--bg-secondary);
+            background: var(--bg-elevated);
+            border: 1px solid var(--gold-primary);
             display: flex;
             align-items: center;
             justify-content: center;
+            color: var(--gold-primary);
             font-size: 0.9rem;
-            border: 1px solid var(--accent-gold);
         }
 
-        .brand-logo {
+        .brand-logo-container {
             text-align: center;
-            text-decoration: none;
         }
 
-        .brand-logo h1 {
+        .brand-title {
             font-family: var(--font-title);
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-            color: var(--text-primary);
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: 2.5px;
+            color: var(--text-main);
+            text-transform: uppercase;
         }
 
-        .brand-logo span {
+        .brand-subtitle-arabic {
             font-family: var(--font-arabic);
             font-size: 0.75rem;
-            color: var(--accent-gold);
+            color: var(--gold-primary);
             display: block;
-            margin-top: -3px;
+            margin-top: -4px;
+            direction: rtl;
         }
 
         .header-actions {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
         }
 
-        .icon-btn {
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: 1.2rem;
+        .header-icon-btn {
             position: relative;
-            cursor: pointer;
+            color: var(--text-main);
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .cart-badge {
+        .badge-count {
             position: absolute;
             top: -6px;
             right: -8px;
-            background: #9C27B0;
-            color: #FFF;
-            font-size: 0.65rem;
+            background: #9C27B0; /* Meesho Purple Accent */
+            color: #FFFFFF;
+            font-size: 0.62rem;
             font-weight: 700;
-            width: 16px;
-            height: 16px;
+            width: 17px;
+            height: 17px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            border: 1.5px solid var(--bg-dark);
         }
 
-        /* Meesho Search Bar */
-        .search-bar-trigger {
+        /* Search Trigger Bar (Meesho Pattern) */
+        .search-trigger-bar {
             background: var(--bg-card);
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--border-light);
             border-radius: 6px;
-            padding: 8px 12px;
+            padding: 9px 12px;
             display: flex;
             align-items: center;
             gap: 10px;
-            color: var(--text-muted);
-            font-size: 0.82rem;
             cursor: pointer;
+            transition: border-color 0.2s;
         }
 
-        .search-bar-trigger input {
-            background: none;
+        .search-trigger-bar:hover {
+            border-color: var(--gold-primary);
+        }
+
+        .search-trigger-bar input {
+            background: transparent;
             border: none;
-            color: var(--text-primary);
+            color: var(--text-main);
             width: 100%;
             outline: none;
             font-size: 0.82rem;
+            pointer-events: none;
         }
 
-        /* --- 2. Horizontal Category Bubbles --- */
-        .categories-slider {
+        .search-trigger-bar input::placeholder {
+            color: var(--text-sub);
+        }
+
+        /* ==========================================================================
+           4. CATEGORIES HORIZONTAL SLIDER (ARCH BUBBLES)
+           ========================================================================== */
+        .category-section {
+            background: var(--bg-dark);
+            padding: 12px 0 10px 0;
+            border-bottom: 1px solid var(--border-dim);
+        }
+
+        .category-slider {
             display: flex;
-            gap: 12px;
+            gap: 14px;
             overflow-x: auto;
-            padding: 12px;
+            padding: 0 14px;
             scrollbar-width: none;
-            background: var(--bg-primary);
-            border-bottom: 1px solid var(--border-color);
         }
 
-        .categories-slider::-webkit-scrollbar { display: none; }
+        .category-slider::-webkit-scrollbar {
+            display: none;
+        }
 
-        .category-item {
+        .category-card {
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-width: 65px;
-            text-align: center;
+            min-width: 68px;
+            cursor: pointer;
         }
 
-        .bubble-arch {
-            width: 58px;
-            height: 58px;
+        .arch-bubble-frame {
+            width: 60px;
+            height: 60px;
             border-radius: 50% 50% 12px 12px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            border: 1.5px solid var(--border-light);
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
+            position: relative;
+            transition: transform 0.2s, border-color 0.2s;
         }
 
-        .bubble-arch img {
+        .category-card:hover .arch-bubble-frame {
+            transform: translateY(-2px);
+            border-color: var(--gold-primary);
+        }
+
+        .arch-bubble-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .category-item span {
+        .category-card span {
             font-size: 0.68rem;
-            font-weight: 500;
-            color: var(--text-primary);
+            font-weight: 600;
+            color: var(--text-main);
+            text-align: center;
             white-space: nowrap;
         }
 
-        /* --- 3. Promo Banner --- */
-        .promo-banner {
-            background: linear-gradient(90deg, #5C0612, #8B0000, #5C0612);
-            color: #FFF;
-            padding: 10px 14px;
+        /* ==========================================================================
+           5. PROMOTIONAL DROPS BANNER
+           ========================================================================== */
+        .promo-banner-strip {
+            background: linear-gradient(90deg, #4A000B, #8B0000, #4A000B);
+            border-top: 1px solid rgba(197, 160, 89, 0.3);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+            padding: 8px 14px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 1px solid var(--border-color);
         }
 
-        .promo-text {
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 1px;
+        .promo-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .promo-badge {
+            background: var(--gold-primary);
+            color: #000;
+            font-size: 0.62rem;
+            font-weight: 800;
+            padding: 2px 6px;
+            border-radius: 3px;
             text-transform: uppercase;
         }
 
-        .promo-timer {
-            background: rgba(0,0,0,0.4);
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.7rem;
+        .promo-title {
+            font-size: 0.75rem;
             font-weight: 700;
-            color: var(--accent-gold);
-            border: 1px solid var(--accent-gold);
+            color: var(--text-main);
+            letter-spacing: 0.5px;
         }
 
-        /* --- 4. Sticky Filter Toolbar --- */
+        .promo-timer {
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: var(--gold-light);
+            background: rgba(0, 0, 0, 0.5);
+            padding: 3px 8px;
+            border-radius: 4px;
+            border: 1px solid var(--gold-dim);
+        }
+
+        /* ==========================================================================
+           6. STICKY FILTER TOOLBAR (MEESHO STYLE)
+           ========================================================================== */
         .filter-toolbar {
             position: sticky;
-            top: 92px;
-            background: var(--bg-primary);
+            top: 96px;
+            background: var(--bg-dark);
+            z-index: 900;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            border-bottom: 1px solid var(--border-color);
-            z-index: 900;
+            border-bottom: 1px solid var(--border-dim);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
         }
 
-        .filter-btn {
-            background: none;
+        .filter-btn-item {
+            background: transparent;
             border: none;
-            border-right: 1px solid var(--border-color);
-            color: var(--text-primary);
+            border-right: 1px solid var(--border-dim);
+            color: var(--text-main);
             padding: 10px 0;
-            font-size: 0.75rem;
+            font-size: 0.74rem;
             font-weight: 600;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 4px;
-            cursor: pointer;
+            transition: background 0.2s;
         }
 
-        .filter-btn:last-child { border-right: none; }
+        .filter-btn-item:last-child {
+            border-right: none;
+        }
 
-        /* --- 5. Meesho Exact 2-Column Product Grid --- */
-        .product-grid {
+        .filter-btn-item:active {
+            background: var(--bg-elevated);
+        }
+
+        /* ==========================================================================
+           7. 2-COLUMN PRODUCT GRID (EXACT MEESHO LAYOUT + OLD MONEY CARDS)
+           ========================================================================== */
+        .product-grid-container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(2, 1fr);
             gap: 8px;
             padding: 8px;
-            background: #000;
+            background: #000000;
         }
 
-        .product-card {
+        .product-card-unit {
             background: var(--bg-card);
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--border-dim);
             border-radius: 6px;
             overflow: hidden;
             position: relative;
@@ -265,106 +367,122 @@
             flex-direction: column;
         }
 
-        .wishlist-heart {
+        .wishlist-toggle-btn {
             position: absolute;
             top: 8px;
             right: 8px;
-            width: 28px;
-            height: 28px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #FFFFFF;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #FFF;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             z-index: 10;
+            transition: transform 0.2s, color 0.2s;
         }
 
-        .card-image-box {
+        .wishlist-toggle-btn:active {
+            transform: scale(1.2);
+            color: #FF4D4D;
+        }
+
+        .card-thumbnail-box {
             position: relative;
             width: 100%;
             padding-top: 125%; /* 4:5 Aspect Ratio */
-            background: #111;
+            background: #181818;
+            overflow: hidden;
         }
 
-        .card-image-box img {
+        .card-thumbnail-box img {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.4s ease, transform 0.4s ease;
         }
 
-        .img-back {
+        .img-layer-back {
             opacity: 0;
         }
 
-        .product-card:hover .img-back, .product-card:active .img-back {
+        .product-card-unit:hover .img-layer-back {
             opacity: 1;
+            transform: scale(1.03);
         }
 
-        .card-details {
+        .product-card-unit:hover .img-layer-front {
+            opacity: 0;
+        }
+
+        .card-details-box {
             padding: 10px 8px;
             display: flex;
             flex-direction: column;
             gap: 4px;
+            flex: 1;
         }
 
-        .product-title {
+        .product-title-text {
             font-size: 0.78rem;
-            color: var(--text-muted);
+            font-weight: 500;
+            color: var(--text-sub);
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            font-weight: 500;
         }
 
-        .price-row {
+        .product-pricing-row {
             display: flex;
             align-items: baseline;
             gap: 6px;
             flex-wrap: wrap;
+            margin-top: 2px;
         }
 
-        .main-price {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--text-primary);
+        .current-price {
+            font-size: 0.98rem;
+            font-weight: 800;
+            color: var(--text-main);
         }
 
-        .original-price {
+        .slashed-price {
             font-size: 0.72rem;
             color: var(--text-muted);
             text-decoration: line-through;
         }
 
-        .discount-off {
+        .discount-tag {
             font-size: 0.7rem;
-            color: #4CAF50;
             font-weight: 700;
+            color: #4CAF50;
         }
 
-        .cod-pill {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            color: var(--text-muted);
-            font-size: 0.65rem;
+        .cod-badge-pill {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-light);
+            color: var(--text-sub);
+            font-size: 0.64rem;
             padding: 2px 6px;
             border-radius: 3px;
             width: fit-content;
             margin-top: 2px;
         }
 
-        .rating-badge {
-            background: var(--accent-green);
-            color: #FFF;
+        .rating-chip-meesho {
+            background: var(--green-meesho);
+            color: #FFFFFF;
             font-size: 0.68rem;
             font-weight: 700;
             padding: 2px 6px;
-            border-radius: 10px;
+            border-radius: 12px;
             display: inline-flex;
             align-items: center;
             gap: 2px;
@@ -372,403 +490,657 @@
             margin-top: 4px;
         }
 
-        .rating-count {
+        .rating-reviews-count {
             color: var(--text-muted);
             font-size: 0.65rem;
-            margin-left: 2px;
+            font-weight: 400;
+            margin-left: 3px;
         }
 
-        /* --- 6. Meesho-Style Side Cart Drawer --- */
-        .cart-drawer {
+        /* Direct Add to Cart Action inside Card */
+        .quick-add-btn {
+            margin-top: 8px;
+            width: 100%;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-light);
+            color: var(--gold-primary);
+            padding: 6px 0;
+            font-size: 0.72rem;
+            font-weight: 700;
+            border-radius: 4px;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .quick-add-btn:active {
+            background: var(--gold-primary);
+            color: #000;
+        }
+
+        /* ==========================================================================
+           8. SLIDE-OUT CART DRAWER (MEESHO CHECKOUT FLOW)
+           ========================================================================== */
+        .cart-drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .cart-drawer-overlay.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .cart-drawer-panel {
             position: fixed;
             top: 0;
             right: -100%;
             width: 100%;
-            max-width: 400px;
+            max-width: 420px;
             height: 100%;
-            background: var(--bg-primary);
-            z-index: 2000;
-            transition: 0.3s ease;
+            background: var(--bg-dark);
+            z-index: 2001;
+            box-shadow: var(--shadow-drawer);
+            transition: right 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             display: flex;
             flex-direction: column;
-            border-left: 1px solid var(--border-color);
+            border-left: 1px solid var(--border-dim);
         }
 
-        .cart-drawer.open { right: 0; }
+        .cart-drawer-overlay.visible .cart-drawer-panel {
+            right: 0;
+        }
 
-        .cart-header {
-            padding: 14px;
-            border-bottom: 1px solid var(--border-color);
+        .cart-panel-header {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border-dim);
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
+            background: var(--bg-card);
         }
 
-        .pincode-strip {
-            background: var(--bg-secondary);
-            padding: 10px 14px;
+        .cart-panel-title {
+            font-size: 0.95rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: var(--text-main);
+        }
+
+        .cart-close-btn {
+            color: var(--text-sub);
+            font-size: 1.2rem;
+        }
+
+        .delivery-pincode-bar {
+            background: var(--bg-elevated);
+            padding: 10px 16px;
             font-size: 0.78rem;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid var(--border-color);
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border-dim);
         }
 
-        .cart-items-body {
+        .pincode-text {
+            color: var(--text-sub);
+        }
+
+        .pincode-change-action {
+            color: var(--gold-primary);
+            font-weight: 700;
+            font-size: 0.75rem;
+        }
+
+        .cart-items-scroll-area {
             flex: 1;
             overflow-y: auto;
-            padding: 12px;
+            padding: 12px 16px;
         }
 
-        .cart-item-card {
+        .cart-item-card-unit {
             background: var(--bg-card);
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--border-dim);
             border-radius: 6px;
             padding: 10px;
             display: flex;
-            gap: 10px;
+            gap: 12px;
             margin-bottom: 10px;
+            position: relative;
         }
 
-        .cart-item-img {
-            width: 70px;
-            height: 85px;
+        .cart-item-thumb {
+            width: 72px;
+            height: 90px;
             object-fit: cover;
             border-radius: 4px;
+            background: #222;
         }
 
-        .cart-item-info {
+        .cart-item-info-col {
             flex: 1;
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            justify-content: space-between;
         }
 
-        .cart-footer {
-            padding: 12px 14px;
-            border-top: 1px solid var(--border-color);
+        .cart-item-name {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .cart-item-prices {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            margin-top: 2px;
+        }
+
+        .cart-item-selectors {
+            display: flex;
+            gap: 10px;
+            margin-top: 6px;
+        }
+
+        .selector-box-chip {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-light);
+            color: var(--text-main);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.72rem;
+            font-weight: 600;
+        }
+
+        .cart-delivery-est {
+            font-size: 0.68rem;
+            color: #4CAF50;
+            margin-top: 4px;
+        }
+
+        .remove-item-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .cart-panel-footer {
+            padding: 14px 16px;
             background: var(--bg-card);
+            border-top: 1px solid var(--border-dim);
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
-        .continue-btn {
-            background: #9C27B0;
-            color: #FFF;
-            border: none;
-            padding: 12px 24px;
-            font-weight: 700;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.85rem;
+        .checkout-total-col {
+            display: flex;
+            flex-direction: column;
         }
 
-        /* --- 7. Search Overlay (Screenshot 6) --- */
-        .search-overlay {
+        .total-label {
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .total-amount {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--gold-primary);
+        }
+
+        .express-checkout-btn {
+            background: #9C27B0; /* Meesho Purple Checkout Button */
+            color: #FFFFFF;
+            padding: 12px 28px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(156, 39, 176, 0.4);
+        }
+
+        /* ==========================================================================
+           9. SEARCH MODAL OVERLAY (EXACT SCREENSHOT 6 REPLICA)
+           ========================================================================== */
+        .search-full-modal {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--bg-primary);
+            background: var(--bg-dark);
             z-index: 2500;
             display: none;
-            padding: 12px;
+            flex-direction: column;
+            padding: 12px 16px;
         }
 
-        .search-overlay.active { display: block; }
+        .search-full-modal.active {
+            display: flex;
+        }
 
-        .search-top-input {
+        .modal-search-input-row {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             margin-bottom: 20px;
         }
 
-        .search-tags {
+        .back-modal-btn {
+            color: var(--text-main);
+            font-size: 1.3rem;
+        }
+
+        .search-input-field-wrap {
+            flex: 1;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 6px;
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .search-input-field-wrap input {
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            width: 100%;
+            outline: none;
+            font-size: 0.88rem;
+        }
+
+        .search-section-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .popular-tags-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 10px;
+            gap: 10px;
         }
 
-        .tag-pill {
+        .search-tag-pill {
             background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 6px 12px;
-            border-radius: 15px;
-            font-size: 0.75rem;
-            color: var(--text-primary);
+            border: 1px solid var(--border-light);
+            color: var(--text-main);
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            cursor: pointer;
         }
 
-        /* --- 8. Fixed Bottom Navigation Bar (Screenshots 1, 3, 4, 5, 10) --- */
-        .bottom-nav {
+        .search-tag-pill:hover {
+            border-color: var(--gold-primary);
+            color: var(--gold-primary);
+        }
+
+        /* ==========================================================================
+           10. FIXED BOTTOM MOBILE NAVIGATION BAR (SCREENSHOTS 1, 3, 4, 5)
+           ========================================================================== */
+        .mobile-bottom-nav {
             position: fixed;
             bottom: 0;
             left: 0;
             width: 100%;
-            background: var(--bg-primary);
-            border-top: 1px solid var(--border-color);
+            background: var(--bg-dark);
+            border-top: 1px solid var(--border-dim);
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            padding: 8px 0;
+            padding: 8px 0 10px 0;
             z-index: 1000;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.5);
         }
 
-        .nav-item {
+        .nav-link-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            text-decoration: none;
+            justify-content: center;
+            gap: 3px;
             color: var(--text-muted);
             font-size: 0.65rem;
-            gap: 3px;
+            font-weight: 500;
         }
 
-        .nav-item.active {
-            color: var(--accent-gold);
+        .nav-link-item.active {
+            color: var(--gold-primary);
             font-weight: 700;
         }
 
-        .nav-item-icon {
-            font-size: 1.1rem;
+        .nav-icon-slot {
+            font-size: 1.15rem;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. Header & Search Trigger -->
+    <!-- ==========================================================================
+       HEADER & SEARCH TRIGGER
+       ========================================================================== -->
     <header class="app-header">
-        <div class="header-top">
-            <div class="user-profile-icon">👤</div>
-            <a href="#" class="brand-logo">
-                <h1>SWAYAM STUDIO</h1>
-                <span>سُوَايَامْ</span>
+        <div class="header-top-row">
+            <button class="user-avatar-btn">👤</button>
+            <a href="#" class="brand-logo-container">
+                <h1 class="brand-title">SWAYAM STUDIO</h1>
+                <span class="brand-subtitle-arabic">سُوَايَامْ</span>
             </a>
             <div class="header-actions">
-                <button class="icon-btn" onclick="alert('Wishlist empty')">♡</button>
-                <button class="icon-btn" onclick="toggleCart()">
-                    🛒 <span class="cart-badge" id="cart-count">1</span>
+                <button class="header-icon-btn" onclick="alert('Wishlist feature open')">♡</button>
+                <button class="header-icon-btn" onclick="openCartDrawer()">
+                    🛒 <span class="badge-count" id="cart-counter">2</span>
                 </button>
             </div>
         </div>
 
-        <div class="search-bar-trigger" onclick="openSearch()">
-            🔍 <input type="text" placeholder="Search by Keyword or Product ID" readonly>
-            🎙️ 📷
+        <div class="search-trigger-bar" onclick="openSearchModal()">
+            <span>🔍</span>
+            <input type="text" placeholder="Search Oversized, Arabic Print, 240 GSM..." readonly>
+            <span>🎙️</span>
         </div>
     </header>
 
-    <!-- 2. Top Category Bubbles Slider -->
-    <div class="categories-slider">
-        <div class="category-item">
-            <div class="bubble-arch"><img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=200" alt="Drop 01"></div>
-            <span>Drop 01</span>
+    <!-- ==========================================================================
+       CATEGORY SLIDER (ARCH BUBBLES)
+       ========================================================================== -->
+    <section class="category-section">
+        <div class="category-slider">
+            <div class="category-card">
+                <div class="arch-bubble-frame"><img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=200" alt="Drop 01"></div>
+                <span>Drop 01</span>
+            </div>
+            <div class="category-card">
+                <div class="arch-bubble-frame"><img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=200" alt="Arabic"></div>
+                <span>Arabic Calligraphy</span>
+            </div>
+            <div class="category-card">
+                <div class="arch-bubble-frame"><img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=200" alt="Oversized"></div>
+                <span>240 GSM Heavy</span>
+            </div>
+            <div class="category-card">
+                <div class="arch-bubble-frame"><img src="https://images.unsplash.com/photo-1576995853123-5a10305d93c0?q=80&w=200" alt="Acid Wash"></div>
+                <span>Acid Wash</span>
+            </div>
+            <div class="category-card">
+                <div class="arch-bubble-frame"><img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=200" alt="Old Money"></div>
+                <span>Old Money</span>
+            </div>
         </div>
-        <div class="category-item">
-            <div class="bubble-arch"><img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=200" alt="Arabic"></div>
-            <span>Arabic Script</span>
+    </section>
+
+    <!-- ==========================================================================
+       PROMOTIONAL STRIP
+       ========================================================================== -->
+    <div class="promo-banner-strip">
+        <div class="promo-info">
+            <span class="promo-badge">EXCLUSIVE</span>
+            <span class="promo-title">DROP 01 • LIMITED STOCK</span>
         </div>
-        <div class="category-item">
-            <div class="bubble-arch"><img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=200" alt="Oversized"></div>
-            <span>240 GSM</span>
-        </div>
-        <div class="category-item">
-            <div class="bubble-arch"><img src="https://images.unsplash.com/photo-1576995853123-5a10305d93c0?q=80&w=200" alt="Acid Wash"></div>
-            <span>Acid Wash</span>
-        </div>
-        <div class="category-item">
-            <div class="bubble-arch"><img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=200" alt="Minimal"></div>
-            <span>Old Money</span>
-        </div>
+        <div class="promo-timer">OFFER ENDS SOON</div>
     </div>
 
-    <!-- 3. Countdown Offer Banner -->
-    <div class="promo-banner">
-        <div class="promo-text">DROP 01 • UP TO 50% OFF</div>
-        <div class="promo-timer">OCT 09 • ENDS SOON</div>
-    </div>
-
-    <!-- 4. Sticky Filter Toolbar -->
+    <!-- ==========================================================================
+       STICKY FILTER TOOLBAR
+       ========================================================================== -->
     <div class="filter-toolbar">
-        <button class="filter-btn">⇅ Sort</button>
-        <button class="filter-btn">Category ∨</button>
-        <button class="filter-btn">Gender ∨</button>
-        <button class="filter-btn">≡ Filters</button>
+        <button class="filter-btn-item">⇅ Sort</button>
+        <button class="filter-btn-item">Category ∨</button>
+        <button class="filter-btn-item">Size ∨</button>
+        <button class="filter-btn-item">≡ Filters</button>
     </div>
 
-    <!-- 5. Meesho Exact 2-Column Product Grid -->
-    <div class="product-grid">
+    <!-- ==========================================================================
+       2-COLUMN PRODUCT GRID
+       ========================================================================== -->
+    <main class="product-grid-container">
 
-        <!-- Product 1 -->
-        <div class="product-card">
-            <div class="wishlist-heart">♡</div>
-            <div class="card-image-box">
-                <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=500" class="img-front" alt="Front View">
-                <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=500" class="img-back" alt="Back View">
+        <!-- Card 1 -->
+        <article class="product-card-unit">
+            <button class="wishlist-toggle-btn">♡</button>
+            <div class="card-thumbnail-box">
+                <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=500" class="img-layer-front" alt="Front">
+                <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=500" class="img-layer-back" alt="Back">
             </div>
-            <div class="card-details">
-                <div class="product-title">Swayam Calligraphy Heavyweight Tee</div>
-                <div class="price-row">
-                    <span class="main-price">₹1,199</span>
-                    <span class="original-price">₹1,999</span>
-                    <span class="discount-off">40% off</span>
+            <div class="card-details-box">
+                <h3 class="product-title-text">Swayam Calligraphy Heavyweight Tee</h3>
+                <div class="product-pricing-row">
+                    <span class="current-price">₹1,199</span>
+                    <span class="slashed-price">₹1,999</span>
+                    <span class="discount-tag">40% OFF</span>
                 </div>
-                <div class="cod-pill">₹1,249 with COD</div>
-                <div class="rating-badge">
-                    4.8 ★ <span class="rating-count">(217)</span>
+                <div class="cod-badge-pill">₹1,249 with COD</div>
+                <div class="rating-chip-meesho">
+                    4.8 ★ <span class="rating-reviews-count">(217)</span>
                 </div>
+                <button class="quick-add-btn" onclick="openCartDrawer()">ADD TO CART</button>
+            </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="product-card-unit">
+            <button class="wishlist-toggle-btn">♡</button>
+            <div class="card-thumbnail-box">
+                <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=500" class="img-layer-front" alt="Front">
+                <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=500" class="img-layer-back" alt="Back">
+            </div>
+            <div class="card-details-box">
+                <h3 class="product-title-text">Old Money Crest Vintage Black Tee</h3>
+                <div class="product-pricing-row">
+                    <span class="current-price">₹1,399</span>
+                    <span class="slashed-price">₹2,299</span>
+                    <span class="discount-tag">39% OFF</span>
+                </div>
+                <div class="cod-badge-pill">₹1,449 with COD</div>
+                <div class="rating-chip-meesho">
+                    4.6 ★ <span class="rating-reviews-count">(94)</span>
+                </div>
+                <button class="quick-add-btn" onclick="openCartDrawer()">ADD TO CART</button>
+            </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="product-card-unit">
+            <button class="wishlist-toggle-btn">♡</button>
+            <div class="card-thumbnail-box">
+                <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=500" class="img-layer-front" alt="Front">
+                <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=500" class="img-layer-back" alt="Back">
+            </div>
+            <div class="card-details-box">
+                <h3 class="product-title-text">Desert Dune 240 GSM Oversized Tee</h3>
+                <div class="product-pricing-row">
+                    <span class="current-price">₹1,099</span>
+                    <span class="slashed-price">₹1,799</span>
+                    <span class="discount-tag">38% OFF</span>
+                </div>
+                <div class="cod-badge-pill">₹1,149 with COD</div>
+                <div class="rating-chip-meesho">
+                    4.9 ★ <span class="rating-reviews-count">(310)</span>
+                </div>
+                <button class="quick-add-btn" onclick="openCartDrawer()">ADD TO CART</button>
+            </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="product-card-unit">
+            <button class="wishlist-toggle-btn">♡</button>
+            <div class="card-thumbnail-box">
+                <img src="https://images.unsplash.com/photo-1576995853123-5a10305d93c0?q=80&w=500" class="img-layer-front" alt="Front">
+                <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=500" class="img-layer-back" alt="Back">
+            </div>
+            <div class="card-details-box">
+                <h3 class="product-title-text">Raw Boxy Fit Charcoal Acid Wash</h3>
+                <div class="product-pricing-row">
+                    <span class="current-price">₹1,249</span>
+                    <span class="slashed-price">₹1,899</span>
+                    <span class="discount-tag">34% OFF</span>
+                </div>
+                <div class="cod-badge-pill">₹1,299 with COD</div>
+                <div class="rating-chip-meesho">
+                    4.7 ★ <span class="rating-reviews-count">(158)</span>
+                </div>
+                <button class="quick-add-btn" onclick="openCartDrawer()">ADD TO CART</button>
+            </div>
+        </article>
+
+    </main>
+
+    <!-- ==========================================================================
+       CART DRAWER
+       ========================================================================== -->
+    <div class="cart-drawer-overlay" id="cartOverlay" onclick="closeCartDrawer()">
+        <div class="cart-drawer-panel" onclick="event.stopPropagation()">
+            <div class="cart-panel-header">
+                <div class="cart-panel-title">MY CART (2 ITEMS)</div>
+                <button class="cart-close-btn" onclick="closeCartDrawer()">✕</button>
+            </div>
+            
+            <div class="delivery-pincode-bar">
+                <span class="pincode-text">📍 Delivery to <b>Kota - 324005</b></span>
+                <span class="pincode-change-action">CHANGE</span>
+            </div>
+
+            <div class="cart-items-scroll-area">
+                <!-- Cart Item 1 -->
+                <div class="cart-item-card-unit">
+                    <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=200" class="cart-item-thumb" alt="Item">
+                    <div class="cart-item-info-col">
+                        <div class="cart-item-name">Swayam Calligraphy Tee</div>
+                        <div class="cart-item-prices">
+                            <span style="font-weight:700; color:var(--text-main);">₹1,199</span>
+                            <span style="font-size:0.7rem; color:var(--text-muted); text-decoration:line-through;">₹1,999</span>
+                        </div>
+                        <div class="cart-item-selectors">
+                            <span class="selector-box-chip">Size: L ∨</span>
+                            <span class="selector-box-chip">Qty: 1 ∨</span>
+                        </div>
+                        <div class="cart-delivery-est">Free Express Delivery in 3 Days</div>
+                    </div>
+                    <button class="remove-item-btn">✕</button>
+                </div>
+
+                <!-- Cart Item 2 -->
+                <div class="cart-item-card-unit">
+                    <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=200" class="cart-item-thumb" alt="Item">
+                    <div class="cart-item-info-col">
+                        <div class="cart-item-name">Old Money Crest Vintage Black</div>
+                        <div class="cart-item-prices">
+                            <span style="font-weight:700; color:var(--text-main);">₹1,399</span>
+                            <span style="font-size:0.7rem; color:var(--text-muted); text-decoration:line-through;">₹2,299</span>
+                        </div>
+                        <div class="cart-item-selectors">
+                            <span class="selector-box-chip">Size: XL ∨</span>
+                            <span class="selector-box-chip">Qty: 1 ∨</span>
+                        </div>
+                        <div class="cart-delivery-est">Free Express Delivery in 3 Days</div>
+                    </div>
+                    <button class="remove-item-btn">✕</button>
+                </div>
+            </div>
+
+            <div class="cart-panel-footer">
+                <div class="checkout-total-col">
+                    <span class="total-label">TOTAL AMOUNT</span>
+                    <span class="total-amount">₹2,598</span>
+                </div>
+                <button class="express-checkout-btn" onclick="alert('Redirecting to Express Checkout Gateway...')">CONTINUE</button>
             </div>
         </div>
-
-        <!-- Product 2 -->
-        <div class="product-card">
-            <div class="wishlist-heart">♡</div>
-            <div class="card-image-box">
-                <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=500" class="img-front" alt="Front View">
-                <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=500" class="img-back" alt="Back View">
-            </div>
-            <div class="card-details">
-                <div class="product-title">Old Money Crest Vintage Black Tee</div>
-                <div class="price-row">
-                    <span class="main-price">₹1,399</span>
-                    <span class="original-price">₹2,299</span>
-                    <span class="discount-off">39% off</span>
-                </div>
-                <div class="cod-pill">₹1,449 with COD</div>
-                <div class="rating-badge">
-                    4.6 ★ <span class="rating-count">(94)</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Product 3 -->
-        <div class="product-card">
-            <div class="wishlist-heart">♡</div>
-            <div class="card-image-box">
-                <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=500" class="img-front" alt="Front View">
-                <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=500" class="img-back" alt="Back View">
-            </div>
-            <div class="card-details">
-                <div class="product-title">Desert Dune 240 GSM Oversized Tee</div>
-                <div class="price-row">
-                    <span class="main-price">₹1,099</span>
-                    <span class="original-price">₹1,799</span>
-                    <span class="discount-off">38% off</span>
-                </div>
-                <div class="cod-pill">₹1,149 with COD</div>
-                <div class="rating-badge">
-                    4.9 ★ <span class="rating-count">(310)</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Product 4 -->
-        <div class="product-card">
-            <div class="wishlist-heart">♡</div>
-            <div class="card-image-box">
-                <img src="https://images.unsplash.com/photo-1576995853123-5a10305d93c0?q=80&w=500" class="img-front" alt="Front View">
-                <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=500" class="img-back" alt="Back View">
-            </div>
-            <div class="card-details">
-                <div class="product-title">Raw Boxy Fit Charcoal Acid Wash</div>
-                <div class="price-row">
-                    <span class="main-price">₹1,249</span>
-                    <span class="original-price">₹1,899</span>
-                    <span class="discount-off">34% off</span>
-                </div>
-                <div class="cod-pill">₹1,299 with COD</div>
-                <div class="rating-badge">
-                    4.7 ★ <span class="rating-count">(158)</span>
-                </div>
-            </div>
-        </div>
-
     </div>
 
-    <!-- 6. Meesho-Style Side Cart Drawer -->
-    <div class="cart-drawer" id="cartDrawer">
-        <div class="cart-header">
-            <div style="font-weight: 700; font-size: 0.95rem;">CART (1 ITEM)</div>
-            <button class="icon-btn" onclick="toggleCart()">✕</button>
-        </div>
-        <div class="pincode-strip">
-            <span>📍 Delivery to <b>Kota - 324005</b></span>
-            <span style="color: var(--accent-gold); font-weight: 600;">Change</span>
-        </div>
-        <div class="cart-items-body">
-            <div class="cart-item-card">
-                <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=200" class="cart-item-img" alt="Item">
-                <div class="cart-item-info">
-                    <div style="font-size: 0.8rem; font-weight: 600;">Swayam Calligraphy Tee</div>
-                    <div style="font-size: 0.75rem; color: var(--accent-gold);">₹1,199 <s style="color: var(--text-muted);">₹1,999</s></div>
-                    <div style="font-size: 0.7rem; color: var(--text-muted);">Size: L • Qty: 1</div>
-                    <div style="font-size: 0.68rem; color: #4CAF50; margin-top: 4px;">Estimated Delivery by Friday, 02nd Oct</div>
-                </div>
+    <!-- ==========================================================================
+       SEARCH MODAL
+       ========================================================================== -->
+    <div class="search-full-modal" id="searchModal">
+        <div class="modal-search-input-row">
+            <button class="back-modal-btn" onclick="closeSearchModal()">←</button>
+            <div class="search-input-field-wrap">
+                <span>🔍</span>
+                <input type="text" placeholder="Search Oversized, Arabic Print, 240 GSM..." id="searchInput">
             </div>
         </div>
-        <div class="cart-footer">
-            <div>
-                <div style="font-size: 0.7rem; color: var(--text-muted);">TOTAL PRICE</div>
-                <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-gold);">₹1,199</div>
-            </div>
-            <button class="continue-btn" onclick="alert('Proceeding to Express UPI / COD Checkout!')">Continue</button>
+        
+        <div class="search-section-title">POPULAR SEARCHES</div>
+        <div class="popular-tags-grid">
+            <div class="search-tag-pill">240 GSM Heavyweight</div>
+            <div class="search-tag-pill">Arabic Calligraphy</div>
+            <div class="search-tag-pill">Acid Wash Charcoal</div>
+            <div class="search-tag-pill">Drop 01 Exclusives</div>
+            <div class="search-tag-pill">Old Money Minimal</div>
         </div>
     </div>
 
-    <!-- 7. Search Overlay Modal -->
-    <div class="search-overlay" id="searchOverlay">
-        <div class="search-top-input">
-            <button class="icon-btn" onclick="closeSearch()">←</button>
-            <input type="text" placeholder="Search Oversized, Arabic Print..." style="flex:1; background: var(--bg-card); border: 1px solid var(--border-color); padding: 8px 12px; color: #FFF; outline: none; border-radius: 4px;">
-        </div>
-        <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 8px;">POPULAR SEARCHES</div>
-        <div class="search-tags">
-            <div class="tag-pill">240 GSM Oversized</div>
-            <div class="tag-pill">Arabic Calligraphy</div>
-            <div class="tag-pill">Acid Wash Black</div>
-            <div class="tag-pill">Drop 01 Essentials</div>
-            <div class="tag-pill">Old Money Crest</div>
-        </div>
-    </div>
-
-    <!-- 8. Fixed Bottom Navigation Bar -->
-    <nav class="bottom-nav">
-        <a href="#" class="nav-item active">
-            <span class="nav-item-icon">🏠</span>
+    <!-- ==========================================================================
+       FIXED BOTTOM NAVIGATION BAR
+       ========================================================================== -->
+    <nav class="mobile-bottom-nav">
+        <a href="#" class="nav-link-item active">
+            <span class="nav-icon-slot">🏠</span>
             <span>Home</span>
         </a>
-        <a href="#" class="nav-item">
-            <span class="nav-item-icon">🗂️</span>
+        <a href="#" class="nav-link-item">
+            <span class="nav-icon-slot">🗂️</span>
             <span>Categories</span>
         </a>
-        <a href="#" class="nav-item">
-            <span class="nav-item-icon">✨</span>
+        <a href="#" class="nav-link-item">
+            <span class="nav-icon-slot">✨</span>
             <span>Drop 01</span>
         </a>
-        <a href="#" class="nav-item">
-            <span class="nav-item-icon">📦</span>
+        <a href="#" class="nav-link-item">
+            <span class="nav-icon-slot">📦</span>
             <span>My Orders</span>
         </a>
-        <a href="#" class="nav-item">
-            <span class="nav-item-icon">👤</span>
+        <a href="#" class="nav-link-item">
+            <span class="nav-icon-slot">👤</span>
             <span>Account</span>
         </a>
     </nav>
 
+    <!-- ==========================================================================
+       INTERACTIVE JAVASCRIPT LOGIC
+       ========================================================================== -->
     <script>
-        function toggleCart() {
-            document.getElementById('cartDrawer').classList.toggle('open');
+        function openCartDrawer() {
+            document.getElementById('cartOverlay').classList.add('visible');
         }
 
-        function openSearch() {
-            document.getElementById('searchOverlay').classList.add('active');
+        function closeCartDrawer() {
+            document.getElementById('cartOverlay').classList.remove('visible');
         }
 
-        function closeSearch() {
-            document.getElementById('searchOverlay').classList.remove('active');
+        function openSearchModal() {
+            const modal = document.getElementById('searchModal');
+            modal.classList.add('active');
+            setTimeout(() => {
+                document.getElementById('searchInput').focus();
+            }, 100);
+        }
+
+        function closeSearchModal() {
+            document.getElementById('searchModal').classList.remove('active');
         }
     </script>
+
 </body>
 </html>
